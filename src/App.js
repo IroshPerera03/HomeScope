@@ -1,7 +1,10 @@
 import React, { useState } from "react";
-import { ThemeProvider } from "@mui/material/styles";
-import { lightTheme, darkTheme } from "./theme";
-import CssBaseline from "@mui/material/CssBaseline";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./components/header/header";
+import Footer from "./components/footer/footer";
+import Hero from "./components/hero/hero";
+import PropertyDetails from "./components/propertyDetails/propertyDetails";
+import "./App.css";
 
 const App = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -9,14 +12,16 @@ const App = () => {
   const toggleTheme = () => setIsDarkMode(!isDarkMode);
 
   return (
-    <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
-      <CssBaseline />
-      <div>
-        <button onClick={toggleTheme}>
-          Switch to {isDarkMode ? "Light" : "Dark"} Mode
-        </button>
+    <Router>
+      <div className={isDarkMode ? "App dark-mode" : "App"}>
+        <Header toggleTheme={toggleTheme} />
+        <Routes>
+          <Route path="/" element={<Hero />} />
+          <Route path="/property/:id" element={<PropertyDetails />} />
+        </Routes>
+        <Footer />
       </div>
-    </ThemeProvider>
+    </Router>
   );
 };
 

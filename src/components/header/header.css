@@ -1,0 +1,51 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #282c34;
+  color: white;
+}
+
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
+  display: flex;
+}
+
+.nav-links {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1em;
+}
+
+.header-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.dark-mode-switch {
+  background-color: #444;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.sign-up {
+  background-color: #61dafb;
+  color: #282c34;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.logo-image {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
