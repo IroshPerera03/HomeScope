@@ -1,13 +1,13 @@
 import React from "react";
 import "../header/header.css";
-import Logo from "../../assets/HomeScope Logo_Logo - Light.png";
+import Logo from "../../assets/Logos/HomeScope Logo_Logo - Light.png";
 
 function Header({ toggleTheme }) {
   return (
     <header className="header">
       <div className="logo">
         <img className="logo-image" src={Logo} alt="Home-Scope Logo" />
-        <h1>Home-Scope</h1>
+        <h1>HomeScope</h1>
       </div>
       <nav className="nav-links">
         <a href="/">Home</a>

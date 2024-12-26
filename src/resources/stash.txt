@@ -1,0 +1,38 @@
+const [filteredProperties, setFilteredProperties] = useState(
+    propertiesData.properties
+  );
+
+  const handleSearch = (criteria) => {
+    const result = propertiesData.properties.filter((property) => {
+      const matchesType =
+        criteria.type === "any" ||
+        property.type.toLowerCase() === criteria.type.toLowerCase();
+      const matchesMinPrice =
+        !criteria.minPrice || property.price >= criteria.minPrice;
+      const matchesMaxPrice =
+        !criteria.maxPrice || property.price <= criteria.maxPrice;
+      const matchesMinBedrooms =
+        !criteria.minBedrooms || property.bedrooms >= criteria.minBedrooms;
+      const matchesMaxBedrooms =
+        !criteria.maxBedrooms || property.bedrooms <= criteria.maxBedrooms;
+      const matchesDateAdded =
+        !criteria.dateAdded ||
+        new Date(property.added) >= new Date(criteria.dateAdded);
+      const matchesPostcode =
+        !criteria.postcode ||
+        property.location
+          .toLowerCase()
+          .startsWith(criteria.postcode.toLowerCase());
+
+      return (
+        matchesType &&
+        matchesMinPrice &&
+        matchesMaxPrice &&
+        matchesMinBedrooms &&
+        matchesMaxBedrooms &&
+        matchesDateAdded &&
+        matchesPostcode
+      );
+    });
+    setFilteredProperties(result);
+  };

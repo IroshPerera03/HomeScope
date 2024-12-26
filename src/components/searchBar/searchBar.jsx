@@ -1,21 +1,28 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./searchBar.css";
 
-function SearchBar({ onSearch }) {
-  const [query, setQuery] = useState("");
+function SearchBar() {
+  const [location, setLocation] = useState("");
+  const navigate = useNavigate();
 
-  const handleChange = (e) => {
-    setQuery(e.target.value);
-    onSearch(e.target.value);
+  const handleSearch = () => {
+    if (location) {
+      navigate(`/property-listing`);
+    }
   };
 
   return (
-    <div>
+    <div className="search-bar">
       <input
         type="text"
-        value={query}
-        onChange={handleChange}
-        placeholder="Search for properties..."
+        placeholder="Enter location"
+        value={location}
+        onChange={(e) => setLocation(e.target.value)}
       />
+      <button onClick={handleSearch} disabled={!location}>
+        Search
+      </button>
     </div>
   );
 }

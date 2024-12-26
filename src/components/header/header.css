@@ -3,8 +3,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #282c34;
-  color: white;
+  background-color: transparent;
 }
 
 .logo {
@@ -12,14 +11,16 @@
   font-weight: bold;
   display: flex;
 }
-
+.logo-image {
+  height: 100px;
+}
 .nav-links {
   display: flex;
-  gap: 15px;
+  gap: 60px;
 }
 
 .nav-links a {
-  color: white;
+  color: var(--text-color);
   text-decoration: none;
   font-size: 1em;
 }
@@ -30,7 +31,7 @@
 }
 
 .dark-mode-switch {
-  background-color: #444;
+  background-color: black;
   color: white;
   border: none;
   padding: 5px 10px;

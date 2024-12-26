@@ -4,6 +4,7 @@ import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 import Hero from "./components/hero/hero";
 import PropertyDetails from "./components/propertyDetails/propertyDetails";
+import PropertyList from "./components/propertyList/propertyList";
 import "./App.css";
 
 const App = () => {
@@ -16,8 +17,9 @@ const App = () => {
       <div className={isDarkMode ? "App dark-mode" : "App"}>
         <Header toggleTheme={toggleTheme} />
         <Routes>
-          <Route path="/" element={<Hero />} />
+          <Route path="/" element={<Hero isDarkMode={isDarkMode} />} />
           <Route path="/property/:id" element={<PropertyDetails />} />
+          <Route path="/property-listing" element={<PropertyList />} />
         </Routes>
         <Footer />
       </div>
