@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import "./searchForm.css";
+import "../searchForm/searchForm.css";
 
 const SearchForm = ({ onSearch }) => {
+  const [query, setQuery] = useState("");
   const [type, setType] = useState("any");
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
@@ -9,10 +10,10 @@ const SearchForm = ({ onSearch }) => {
   const [maxBedrooms, setMaxBedrooms] = useState("");
   const [dateAdded, setDateAdded] = useState("");
   const [postcode, setPostcode] = useState("");
-
   const handleSubmit = (e) => {
     e.preventDefault();
     onSearch({
+      query,
       type,
       minPrice,
       maxPrice,
@@ -22,9 +23,16 @@ const SearchForm = ({ onSearch }) => {
       postcode,
     });
   };
-
   return (
     <form className="search-form" onSubmit={handleSubmit}>
+      <div>
+        <label>Location:</label>
+        <input
+          type="text"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+        />
+      </div>
       <div>
         <label>Type:</label>
         <select value={type} onChange={(e) => setType(e.target.value)}>

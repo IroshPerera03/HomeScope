@@ -1,53 +1,30 @@
+import React from "react";
+import { Link } from "react-router-dom";
 import "./propertyList.css";
-import propertiesData from "../../data/properties";
-import { useState } from "react";
-import SearchForm from "../searchForm/searchForm";
-import PropertyDetails from "../propertyDetails/propertyDetails";
 
-function PropertyList() {
-  const [filteredProperties, setFilteredProperties] = useState(
-    propertiesData.properties
-  );
-
-  const handleSearch = (criteria) => {
-    const result = propertiesData.properties.filter((property) => {
-      const matchesType =
-        criteria.type === "any" ||
-        property.type.toLowerCase() === criteria.type.toLowerCase();
-      const matchesMinPrice =
-        !criteria.minPrice || property.price >= criteria.minPrice;
-      const matchesMaxPrice =
-        !criteria.maxPrice || property.price <= criteria.maxPrice;
-      const matchesMinBedrooms =
-        !criteria.minBedrooms || property.bedrooms >= criteria.minBedrooms;
-      const matchesMaxBedrooms =
-        !criteria.maxBedrooms || property.bedrooms <= criteria.maxBedrooms;
-      const matchesDateAdded =
-        !criteria.dateAdded ||
-        new Date(property.added) >= new Date(criteria.dateAdded);
-      const matchesPostcode =
-        !criteria.postcode ||
-        property.location
-          .toLowerCase()
-          .startsWith(criteria.postcode.toLowerCase());
-
-      return (
-        matchesType &&
-        matchesMinPrice &&
-        matchesMaxPrice &&
-        matchesMinBedrooms &&
-        matchesMaxBedrooms &&
-        matchesDateAdded &&
-        matchesPostcode
-      );
-    });
-    setFilteredProperties(result);
-  };
+function PropertyList({ properties }) {
+  if (properties.length === 0) {
+    return <p>No properties match your search criteria.</p>;
+  }
 
   return (
-    <div>
-      <SearchForm onSearch={handleSearch} />
-      <PropertyDetails />
+    <div className="property-list">
+      {properties.map((property) => (
+        <div key={property.id} className="property-card">
+          <img src={property.picture} alt={property.type} />
+          <h3>{property.type}</h3>
+          <p>
+            <strong>Location:</strong> {property.location}
+          </p>
+          <p>
+            <strong>Price:</strong> ${property.price.toLocaleString()}
+          </p>
+          <p>
+            <strong>Bedrooms:</strong> {property.bedrooms}
+          </p>
+          <Link to={`/property/${property.id}`}>View Details</Link>
+        </div>
+      ))}
     </div>
   );
 }
