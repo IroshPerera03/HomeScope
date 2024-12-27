@@ -1,0 +1,116 @@
+/* General styles for the form */
+.search-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  max-width: 600px;
+  margin: auto;
+}
+
+/* Styles for form elements */
+.search-form div {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-form label {
+  font-size: 1.2em;
+  margin-bottom: 5px;
+  color: var(--text-color);
+}
+
+.search-form input,
+.search-form select {
+  padding: 10px;
+  border-radius: 8px;
+  color: var(--text-color);
+  font-size: 1em;
+}
+
+.search-form input::placeholder {
+  color: var(--text-color);
+}
+
+.search-form button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.search-form button:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Responsive styles for iPad */
+@media (max-width: 768px) {
+  .search-form {
+    padding: 15px;
+  }
+
+  .search-form label {
+    font-size: 1em;
+  }
+
+  .search-form input,
+  .search-form select {
+    font-size: 0.9em;
+  }
+
+  .search-form button {
+    font-size: 1em;
+  }
+}
+
+/* Responsive styles for mobile */
+@media (max-width: 480px) {
+  .search-form {
+    padding: 10px;
+  }
+
+  .search-form label {
+    font-size: 0.9em;
+  }
+
+  .search-form input,
+  .search-form select {
+    font-size: 0.8em;
+  }
+
+  .search-form button {
+    font-size: 0.9em;
+  }
+}
+
+/* Styles for larger screens */
+@media (min-width: 1024px) {
+  .search-form {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .search-form div {
+    flex: 1;
+    min-width: 150px;
+    margin-right: 10px;
+  }
+
+  .search-form div:last-child {
+    margin-right: 0;
+  }
+
+  .search-form button {
+    align-self: flex-end;
+  }
+}
