@@ -5,16 +5,17 @@ import "../search/search.css";
 import SearchForm from "../searchForm/searchForm.jsx";
 
 function Search() {
-  const [query, setQuery] = useState("");
   const [filteredProperties, setFilteredProperties] = useState(
     propertiesData.properties
   );
 
   const handleSearch = (searchParams) => {
     const results = propertiesData.properties.filter((property) => {
-      const query = searchParams.query || "";
       const matches =
-        property.location.toLowerCase().includes(query.toLowerCase()) &&
+        (searchParams.location === "" ||
+          property.location
+            .toLowerCase()
+            .includes(searchParams.location.toLowerCase())) &&
         (searchParams.type === "any" ||
           property.type.toLowerCase() === searchParams.type.toLowerCase()) &&
         (searchParams.minPrice === "" ||
@@ -28,7 +29,9 @@ function Search() {
         (searchParams.dateAdded === "" ||
           new Date(property.dateAdded) >= new Date(searchParams.dateAdded)) &&
         (searchParams.postcode === "" ||
-          property.postcode.includes(searchParams.postcode));
+          property.location
+            .toLowerCase()
+            .includes(searchParams.postcode.toLowerCase()));
       return matches;
     });
     setFilteredProperties(results);
