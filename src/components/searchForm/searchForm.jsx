@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../searchForm/searchForm.css";
 
 const SearchForm = ({ onSearch }) => {
-  const [location, setLocation] = useState("");
+  const [query, setQuery] = useState("");
   const [type, setType] = useState("any");
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
@@ -13,7 +13,7 @@ const SearchForm = ({ onSearch }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     onSearch({
-      location,
+      query,
       type,
       minPrice,
       maxPrice,
@@ -29,8 +29,8 @@ const SearchForm = ({ onSearch }) => {
         <label>Location:</label>
         <input
           type="text"
-          value={location}
-          onChange={(e) => setLocation(e.target.value)}
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
         />
       </div>
       <div>
