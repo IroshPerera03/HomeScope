@@ -27,8 +27,8 @@ function Hero({ isDarkMode }) {
       <div className="overlay">
         <div className="hero-content">
           <div className="hero-text">
-            <h1>Let us help you find</h1>
-            <p>your DREAM home.</p>
+            <h1>Discover Your Perfect Sanctuary</h1>
+            <p>Find the home that matches your dreams.</p>
           </div>
           <div className="hero-carousel">
             <Carousel

@@ -17,7 +17,7 @@ const App = () => {
       <div className={isDarkMode ? "App dark-mode" : "App"}>
         <Header toggleTheme={toggleTheme} isDarkMode={isDarkMode} />
         <Routes>
-          <Route path="/" element={<Hero isDarkMode={isDarkMode} />} />
+          <Route path="/home" element={<Hero isDarkMode={isDarkMode} />} />
           <Route path="/search" element={<Search />} />
           <Route path="/property/:id" element={<PropertyDetails />} />
         </Routes>
