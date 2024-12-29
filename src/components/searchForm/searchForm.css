@@ -2,25 +2,42 @@
   align-items: center;
   justify-content: center;
   padding: 20px;
-
   border-radius: 15px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
+
 .search-form-container .row {
   margin: 20px;
 }
+
 .search-form-container .col {
   padding: 10px;
 }
-.col {
-  align-content: center;
-}
+
 .search-form label {
   font-weight: bold;
-  color: #333;
+  color: var(--text-color);
   margin-bottom: 4px;
 }
+
+.search-form input,
+.search-form select,
+.search-form .rw-widget-picker {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+}
+
 .location {
   padding: 10px;
   border-radius: 5px;
+  background-color: var(--input-background-color);
+  border: 1px solid var(--border-color);
 }

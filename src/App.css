@@ -3,6 +3,15 @@
   --text-color: #000000;
   --text-s-color: #ffffff;
   --primary-color: #1c563b;
+  --border-color: #ccc;
+  --input-background-color: #f9f9f9;
+  --button-text-color: #ffffff;
+  --button-background-color: #000000;
+  --primary-color-hover: #0056b3;
+  --hover-background-color: #e9ecef;
+  --favorite-color: #ff6b6b;
+  --favorite-color-hover: #ff3b3b;
+  --item-background-color: #ffffff;
 }
 
 html,
@@ -35,16 +44,17 @@ main {
   display: flex;
   flex-direction: column;
   text-align: center;
-  background-color: var(--main-bg-color);
-  color: var(--main-text-color);
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
-header {
-  flex: 0 0 auto;
-}
-
+header,
 footer {
   flex: 0 0 auto;
+}
+
+a {
+  text-decoration: none;
 }
 
 .dark-mode {
@@ -52,4 +62,10 @@ footer {
   --text-color: #ffffff;
   background-color: var(--bg-color);
   color: var(--text-color);
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }

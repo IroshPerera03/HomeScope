@@ -1,5 +1,7 @@
 .search-page {
   padding: 20px;
+  display: flex;
+  background-color: var(--bg-color);
 }
 
 .search-form {
@@ -12,20 +14,51 @@
   padding: 10px;
   font-size: 16px;
   margin-right: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-color);
   border-radius: 4px;
+  background-color: var(--input-background-color);
+  color: var(--text-color);
 }
 
 .search-form button {
   padding: 10px 20px;
   font-size: 16px;
-  background-color: #007bff;
-  color: white;
+  background-color: var(--primary-color);
+  color: var(--button-text-color);
   border: none;
   border-radius: 4px;
   cursor: pointer;
 }
 
 .search-form button:hover {
-  background-color: #0056b3;
+  background-color: var(--primary-color-hover);
+}
+
+.main-container {
+  display: flex;
+  flex-grow: 1;
+}
+
+.main-content {
+  flex: 1;
+  margin-right: 300px;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: var(--bg-color);
+}
+
+.right-section {
+  position: fixed;
+  top: 100px;
+  right: 0;
+  width: 300px;
+  height: 100%;
+  background-color: var(--bg-color);
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  transition: transform 0.3s ease;
+}
+
+.right-section:hover {
+  background-color: var(--hover-background-color);
 }

@@ -1,0 +1,65 @@
+.favorites-bar {
+  position: fixed;
+  width: 300px;
+  top: 100px;
+  height: 100%;
+  background-color: var(--bg-color);
+  border-left: 2px solid var(--border-color);
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  overflow-y: auto;
+  transition: transform 0.3s ease;
+}
+
+.favorites-bar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.favorite-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  border: 1px solid var(--border-color);
+  padding: 10px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: transform 0.2s ease;
+}
+
+.favorite-item:hover {
+  transform: translateY(-5px);
+}
+
+.favorite-item img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  border-radius: 4px;
+}
+
+.clear-button {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--favorite-color);
+  color: var(--button-text-color);
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.favorites-drop-zone {
+  border: 2px dashed var(--border-color);
+  padding: 20px;
+  text-align: center;
+  background-color: var(--bg-color);
+  margin: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.favorites-drop-zone:hover {
+  background-color: var(--hover-background-color);
+}

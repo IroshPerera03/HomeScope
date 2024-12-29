@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import dayjs from "dayjs";
 import "./searchForm.css";
 
 import Container from "react-bootstrap/Container";
@@ -33,8 +32,6 @@ const SearchForm = ({ onSearch }) => {
       endDate,
       postcode,
     };
-
-    console.log(searchParams);
     onSearch(searchParams);
   };
 
@@ -50,6 +47,7 @@ const SearchForm = ({ onSearch }) => {
               value={location}
               onChange={(e) => setLocation(e.target.value)}
               placeholder="Enter location"
+              className="transparent-input"
             />
           </Col>
           <Col lg={3}>
@@ -58,6 +56,7 @@ const SearchForm = ({ onSearch }) => {
               id="type"
               value={type}
               onChange={(e) => setType(e.target.value)}
+              className="transparent-input"
             >
               <option value="any">Any</option>
               <option value="house">House</option>
@@ -71,6 +70,7 @@ const SearchForm = ({ onSearch }) => {
               placeholder="Start Date"
               defaultValue={null}
               onChange={(e) => setStartDate(e)}
+              className="transparent-input"
             />
           </Col>
           <Col className="date-range" lg={3}>
@@ -82,6 +82,7 @@ const SearchForm = ({ onSearch }) => {
               placeholder="End Date"
               defaultValue={null}
               onChange={(e) => setEndDate(e)}
+              className="transparent-input"
             />
           </Col>
         </Row>
@@ -98,6 +99,7 @@ const SearchForm = ({ onSearch }) => {
               max={1000000}
               defaultValue={0}
               marks={true}
+              className="transparent-input"
             />
             <span>{minPrice}</span>
           </Col>
@@ -113,6 +115,7 @@ const SearchForm = ({ onSearch }) => {
               max={1000000}
               defaultValue={1000000}
               marks={true}
+              className="transparent-input"
             />
             <span>{maxPrice}</span>
           </Col>
@@ -124,6 +127,7 @@ const SearchForm = ({ onSearch }) => {
               value={minBedrooms}
               onChange={(e) => setMinBedrooms(e.target.value)}
               placeholder="min bedrooms"
+              className="transparent-input"
             />
           </Col>
           <Col lg={2}>
@@ -134,6 +138,7 @@ const SearchForm = ({ onSearch }) => {
               value={maxBedrooms}
               onChange={(e) => setMaxBedrooms(e.target.value)}
               placeholder="max bedrooms"
+              className="transparent-input"
             />
           </Col>
           <Col lg={4}>
@@ -144,6 +149,7 @@ const SearchForm = ({ onSearch }) => {
               value={postcode}
               onChange={(e) => setPostcode(e.target.value)}
               placeholder="postalcode"
+              className="transparent-input"
             />
           </Col>
         </Row>

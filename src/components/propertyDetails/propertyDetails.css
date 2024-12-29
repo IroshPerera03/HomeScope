@@ -1,6 +1,7 @@
 .property-details {
   font-family: Arial, sans-serif;
   margin: 20px;
+  display: flex;
 }
 
 .back-button {
@@ -73,4 +74,15 @@
   padding: 20px;
   background-color: #f8f9fa;
   border-radius: 8px;
+}
+
+.right-section {
+  position: fixed;
+  top: 100px;
+  right: 0;
+  width: 300px;
+  height: 100%;
+  background-color: #f9f9f9;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
 }

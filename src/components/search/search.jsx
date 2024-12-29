@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import propertiesData from "../../data/properties.json";
 import PropertyList from "../propertyList/propertyList.jsx";
 import "../search/search.css";
 import SearchForm from "../searchForm/searchForm.jsx";
+import FavoritesBar from "../favoritesBar/favoritesBar.jsx";
+import { FavoritesContext } from "../../context/favoritesContext.js";
 
 function parseAddedToDate(added) {
-  // Convert month name to a numeric value
   const monthNames = [
     "January",
     "February",
@@ -20,24 +21,32 @@ function parseAddedToDate(added) {
     "November",
     "December",
   ];
-  const monthIndex = monthNames.indexOf(added.month); // 0-based index
-
+  const monthIndex = monthNames.indexOf(added.month);
   if (monthIndex === -1) {
     throw new Error(`Invalid month: ${added.month}`);
   }
-
-  // Construct the Date object
   return new Date(added.year, monthIndex, added.day);
 }
 
 function Search() {
   const [filteredProperties, setFilteredProperties] = useState([]);
   const [searchPerformed, setSearchPerformed] = useState(false);
+  const { addFavorite } = useContext(FavoritesContext);
+
+  const handleDrop = (event) => {
+    event.preventDefault();
+    const propertyId = event.dataTransfer.getData("propertyId");
+    const property = propertiesData.properties.find((p) => p.id === propertyId);
+    if (property) addFavorite(property);
+  };
+
+  const handleDragOver = (event) => {
+    event.preventDefault();
+  };
 
   const handleSearch = (searchParams) => {
     const results = propertiesData.properties.filter((property) => {
       const date = parseAddedToDate(property.added);
-      console.log(date);
       const matches =
         (searchParams.location === "" ||
           property.location
@@ -68,8 +77,27 @@ function Search() {
 
   return (
     <div className="search-page">
-      <SearchForm onSearch={handleSearch} />
-      {searchPerformed && <PropertyList properties={filteredProperties} />}
+      <div className="main-container">
+        <div className="main-content">
+          <SearchForm onSearch={handleSearch} />
+          {searchPerformed && (
+            <PropertyList
+              properties={filteredProperties}
+              draggable
+              onDragStart={(e, propertyId) =>
+                e.dataTransfer.setData("propertyId", propertyId)
+              }
+            />
+          )}
+        </div>
+        <div
+          className="right-section"
+          onDrop={handleDrop}
+          onDragOver={handleDragOver}
+        >
+          <FavoritesBar />
+        </div>
+      </div>
     </div>
   );
 }

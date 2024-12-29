@@ -3,17 +3,22 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: transparent;
+  background-color: var(--bg-color);
 }
 
 .logo {
   font-size: 1.5em;
   font-weight: bold;
   display: flex;
+  color: var(--text-color);
 }
+
 .logo-image {
-  height: 100px;
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
 }
+
 .nav-links {
   display: flex;
   gap: 60px;
@@ -43,24 +48,19 @@
 }
 
 .dark-mode-switch {
-  background-color: black;
-  color: white;
+  background-color: var(--button-background-color);
+  color: var(--button-text-color);
   border: none;
   padding: 5px 10px;
   cursor: pointer;
 }
 
 .sign-up {
-  background-color: #61dafb;
-  color: #282c34;
+  background-color: var(--primary-color);
+  color: var(--button-text-color);
   border: none;
   padding: 5px 10px;
   cursor: pointer;
-}
-.logo-image {
-  width: 50px;
-  height: 50px;
-  margin-right: 10px;
 }
 
 .hamburger-menu {
@@ -69,6 +69,7 @@
   border: none;
   font-size: 1.5em;
   cursor: pointer;
+  color: var(--text-color);
 }
 
 @media (max-width: 768px) {
@@ -79,9 +80,9 @@
     position: absolute;
     top: 60px;
     right: 20px;
-    background-color: white;
+    background-color: var(--bg-color);
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--border-color);
   }
 
   .nav-links.open {
