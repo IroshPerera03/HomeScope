@@ -7,7 +7,8 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
-import KitchenImage from "../../assets/PropertyImages/prop2/kitchen.jpg";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 function PropertyDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -22,24 +23,27 @@ function PropertyDetails() {
     }
   };
 
-  // Base path for images
-  const basePath = require.context("../../assets/PropertyImages", true);
+  // Dynamically load images with require.context
+  const basePath = require.context(
+    "../../assets/PropertyImages",
+    true,
+    /\.(png|jpe?g|svg)$/ // Match file extensions
+  );
 
-  // Dynamically generate image paths
   const imageNames = [
     "kitchen.jpg",
     "bedroom.jpg",
-    "living-room.jpg",
+    "livingroom.jpg",
     "bathroom.jpg",
-  ]; // Add or adjust names as needed
+  ];
   const images = imageNames.map((name) => {
     try {
       return {
-        original: basePath(`/${property.id}/${name}`), // Path to the full-size image
-        thumbnail: basePath(`/${property.id}/thumbnail/${name}`), // Path to the thumbnail
+        original: basePath(`./${property.id}/${name}`), // Path to the full-size image
+        thumbnail: basePath(`./${property.id}/thumbnails/${name}`), // Path to the thumbnail
       };
     } catch (error) {
-      console.error(`Image not found: ${basePath}${name}`);
+      console.error(`Image not found: ${name}`);
       return {
         original: DefImage, // Fallback image
         thumbnail: DefImage, // Fallback image
@@ -47,35 +51,42 @@ function PropertyDetails() {
     }
   });
 
+  const googleMapsApiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
+
   return (
-    <div className="property-details">
-      <button className="back-button" onClick={handleBackClick}>
+    <div className="container property-details">
+      <button className="btn btn-primary back-button" onClick={handleBackClick}>
         Back to Search Results
       </button>
-      <div className="property-gallery">
-        <ImageGallery items={images} showPlayButton={false} />
-      </div>
-      <div className="property-info">
-        <h1>{property.type}</h1>
-        <p>
-          <strong>Location:</strong> {property.location}
-        </p>
-        <p>
-          <strong>Price:</strong> £{property.price.toLocaleString()}
-        </p>
-        <p>
-          <strong>Bedrooms:</strong> {property.bedrooms}
-        </p>
-        <p>
-          <strong>Tenure:</strong> {property.tenure}
-        </p>
-        <p>
-          <strong>Description:</strong> {property.description}
-        </p>
-        <p>
-          <strong>Date Added:</strong>{" "}
-          {`${property.added.day} ${property.added.month} ${property.added.year}`}
-        </p>
+      <div className="row">
+        <div className="col-md-8">
+          <div className="property-gallery">
+            <ImageGallery items={images} showPlayButton={false} />
+          </div>
+        </div>
+        <div className="col-md-4">
+          <div className="card property-info">
+            <div className="card-body">
+              <h1 className="card-title">{property.type}</h1>
+              <p className="card-text">
+                <strong>Location:</strong> {property.location}
+              </p>
+              <p className="card-text">
+                <strong>Price:</strong> £{property.price.toLocaleString()}
+              </p>
+              <p className="card-text">
+                <strong>Bedrooms:</strong> {property.bedrooms}
+              </p>
+              <p className="card-text">
+                <strong>Tenure:</strong> {property.tenure}
+              </p>
+              <p className="card-text">
+                <strong>Date Added:</strong>{" "}
+                {`${property.added.day} ${property.added.month} ${property.added.year}`}
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
       <Tabs>
         <TabList>
@@ -85,15 +96,21 @@ function PropertyDetails() {
         </TabList>
 
         <TabPanel>
-          <p>{property.longDescription}</p>
+          <p>{property.description}</p>
         </TabPanel>
         <TabPanel>
-          <img src={property.floorPlan} alt="Floor Plan" />
+          <img
+            src={property.floorPlan}
+            alt="Floor Plan"
+            className="img-fluid"
+          />
         </TabPanel>
         <TabPanel>
           <iframe
-            src={`https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=${property.location}`}
-            width="600"
+            src={`https://www.google.com/maps/embed/v1/place?key=${
+              process.env.REACT_APP_GOOGLE_MAPS_API_KEY
+            }&q=${encodeURIComponent(property.location)}`}
+            width="100%"
             height="450"
             style={{ border: 0 }}
             allowFullScreen=""
