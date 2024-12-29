@@ -6,6 +6,7 @@ import Hero from "./components/hero/hero";
 import "./App.css";
 import Search from "./components/search/search";
 import PropertyDetails from "./components/propertyDetails/propertyDetails";
+import "react-widgets/styles.css";
 
 const App = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);

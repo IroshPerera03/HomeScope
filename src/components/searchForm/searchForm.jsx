@@ -1,95 +1,156 @@
 import React, { useState } from "react";
-import "../searchForm/searchForm.css";
+import dayjs from "dayjs";
+import "./searchForm.css";
+
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+
+import Slider from "@mui/material/Slider";
+import DatePicker from "react-widgets/DatePicker";
 
 const SearchForm = ({ onSearch }) => {
-  const [query, setQuery] = useState("");
+  const [location, setLocation] = useState("");
   const [type, setType] = useState("any");
-  const [minPrice, setMinPrice] = useState("");
-  const [maxPrice, setMaxPrice] = useState("");
+  const [minPrice, setMinPrice] = useState(0);
+  const [maxPrice, setMaxPrice] = useState(1000000);
   const [minBedrooms, setMinBedrooms] = useState("");
   const [maxBedrooms, setMaxBedrooms] = useState("");
-  const [dateAdded, setDateAdded] = useState("");
   const [postcode, setPostcode] = useState("");
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSearch({
-      query,
+    const searchParams = {
+      location,
       type,
       minPrice,
       maxPrice,
       minBedrooms,
       maxBedrooms,
-      dateAdded,
+      startDate,
+      endDate,
       postcode,
-    });
+    };
+
+    console.log(searchParams);
+    onSearch(searchParams);
   };
+
   return (
     <form className="search-form" onSubmit={handleSubmit}>
-      <div>
-        <label>Location:</label>
-        <input
-          type="text"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-        />
-      </div>
-      <div>
-        <label>Type:</label>
-        <select value={type} onChange={(e) => setType(e.target.value)}>
-          <option value="any">Any</option>
-          <option value="house">House</option>
-          <option value="flat">Flat</option>
-        </select>
-      </div>
-      <div>
-        <label>Min Price:</label>
-        <input
-          type="number"
-          value={minPrice}
-          onChange={(e) => setMinPrice(e.target.value)}
-        />
-      </div>
-      <div>
-        <label>Max Price:</label>
-        <input
-          type="number"
-          value={maxPrice}
-          onChange={(e) => setMaxPrice(e.target.value)}
-        />
-      </div>
-      <div>
-        <label>Min Bedrooms:</label>
-        <input
-          type="number"
-          value={minBedrooms}
-          onChange={(e) => setMinBedrooms(e.target.value)}
-        />
-      </div>
-      <div>
-        <label>Max Bedrooms:</label>
-        <input
-          type="number"
-          value={maxBedrooms}
-          onChange={(e) => setMaxBedrooms(e.target.value)}
-        />
-      </div>
-      <div>
-        <label>Date Added:</label>
-        <input
-          type="date"
-          value={dateAdded}
-          onChange={(e) => setDateAdded(e.target.value)}
-        />
-      </div>
-      <div>
-        <label>Postcode:</label>
-        <input
-          type="text"
-          value={postcode}
-          onChange={(e) => setPostcode(e.target.value)}
-        />
-      </div>
-      <button type="submit">Search</button>
+      <Container className="search-form-container">
+        <Row sm={1}>
+          <Col className="location" lg={3}>
+            <label htmlFor="location">Location:</label>
+            <input
+              id="location"
+              type="text"
+              value={location}
+              onChange={(e) => setLocation(e.target.value)}
+              placeholder="Enter location"
+            />
+          </Col>
+          <Col lg={3}>
+            <label htmlFor="type">Type:</label>
+            <select
+              id="type"
+              value={type}
+              onChange={(e) => setType(e.target.value)}
+            >
+              <option value="any">Any</option>
+              <option value="house">House</option>
+              <option value="flat">Flat</option>
+            </select>
+          </Col>
+          <Col className="date-range" lg={3}>
+            <label htmlFor="startDate">Start Date:</label>
+            <DatePicker
+              parse={(str) => new Date(str)}
+              placeholder="Start Date"
+              defaultValue={null}
+              onChange={(e) => setStartDate(e)}
+            />
+          </Col>
+          <Col className="date-range" lg={3}>
+            <label htmlFor="endDate" defaultValue={null}>
+              End Date:
+            </label>
+            <DatePicker
+              parse={(str) => new Date(str)}
+              placeholder="End Date"
+              defaultValue={null}
+              onChange={(e) => setEndDate(e)}
+            />
+          </Col>
+        </Row>
+        <Row>
+          <Col lg={2}>
+            <label htmlFor="minPrice">Min Price:</label>
+            <Slider
+              aria-label="Min Price"
+              value={minPrice}
+              onChange={(e, value) => setMinPrice(value)}
+              valueLabelDisplay="auto"
+              step={100000}
+              min={0}
+              max={1000000}
+              defaultValue={0}
+              marks={true}
+            />
+            <span>{minPrice}</span>
+          </Col>
+          <Col lg={2}>
+            <label htmlFor="maxPrice">Max Price:</label>
+            <Slider
+              aria-label="Max Price"
+              value={maxPrice}
+              onChange={(e, value) => setMaxPrice(value)}
+              valueLabelDisplay="auto"
+              step={100000}
+              min={0}
+              max={1000000}
+              defaultValue={1000000}
+              marks={true}
+            />
+            <span>{maxPrice}</span>
+          </Col>
+          <Col lg={2}>
+            <label htmlFor="minBedrooms">Min Bedrooms:</label>
+            <input
+              id="minBedrooms"
+              type="number"
+              value={minBedrooms}
+              onChange={(e) => setMinBedrooms(e.target.value)}
+              placeholder="min bedrooms"
+            />
+          </Col>
+          <Col lg={2}>
+            <label htmlFor="maxBedrooms">Max Bedrooms:</label>
+            <input
+              id="maxBedrooms"
+              type="number"
+              value={maxBedrooms}
+              onChange={(e) => setMaxBedrooms(e.target.value)}
+              placeholder="max bedrooms"
+            />
+          </Col>
+          <Col lg={4}>
+            <label htmlFor="postcode">Postcode:</label>
+            <input
+              id="postcode"
+              type="text"
+              value={postcode}
+              onChange={(e) => setPostcode(e.target.value)}
+              placeholder="postalcode"
+            />
+          </Col>
+        </Row>
+        <Row lg={3}>
+          <button type="submit">Search</button>
+        </Row>
+      </Container>
     </form>
   );
 };

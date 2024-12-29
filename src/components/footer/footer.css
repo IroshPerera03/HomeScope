@@ -1,8 +1,27 @@
 .footer {
-  background-color: var(--bg-color);
+  background-color: transparent;
   color: var(--text-color);
   padding: 10px 0;
   width: 100%;
-  position: relative;
+  position: fixed; /* Make the footer stick to the bottom */
   bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer p {
+  flex: 1;
+  text-align: center;
+  margin: 15px;
+  margin-bottom: 0;
+}
+
+.footer p:first-child {
+  text-align: left;
+}
+
+.footer p:last-child {
+  text-align: right;
 }

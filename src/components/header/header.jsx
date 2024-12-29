@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useLocation, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import LogoLight from "../../assets/Logos/HomeScope Logo_Logo - Light.png";
 import LogoDark from "../../assets/Logos/HomeScope Logo_Logo -Dark.png";
 import "../header/header.css";

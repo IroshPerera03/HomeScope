@@ -3,6 +3,10 @@ import { useNavigate } from "react-router-dom";
 import { Carousel } from "react-bootstrap";
 import "../hero/hero.css";
 
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+
 import DayImg1 from "../../assets/HeroImages/day1.png";
 import DayImg2 from "../../assets/HeroImages/day2.png";
 import DayImg3 from "../../assets/HeroImages/day3.png";
@@ -25,36 +29,38 @@ function Hero({ isDarkMode }) {
   return (
     <section className="hero">
       <div className="overlay">
-        <div className="hero-content">
-          <div className="hero-text">
-            <h1>Discover Your Perfect Sanctuary</h1>
-            <p>Find the home that matches your dreams.</p>
-          </div>
-          <div className="hero-carousel">
-            <Carousel
-              className="carousel-fade"
-              controls={false}
-              touch={true}
-              indicators={false}
-              variant={isDarkMode ? "light" : "dark"}
-            >
-              {images.map((img, index) => (
-                <Carousel.Item key={index}>
-                  <img
-                    className="d-block w-100"
-                    src={img}
-                    alt={`Slide ${index + 1}`}
-                  />
-                </Carousel.Item>
-              ))}
-            </Carousel>
-          </div>
-        </div>
-        <div className="search-bar">
-          <button className="start-search-btn" onClick={handleStartSearch}>
-            Start Search
-          </button>
-        </div>
+        <Container>
+          <Row className="hero-content">
+            <Col xs={12} md={6} lg={true} className="hero-text">
+              <h1>Discover Your Perfect Sanctuary</h1>
+              <p>Find the home that matches your dreams.</p>
+            </Col>
+            <Col xs={12} md={true} lg={8} className="hero-carousel">
+              <Carousel
+                className="carousel-fade"
+                controls={false}
+                touch={true}
+                indicators={false}
+                variant={isDarkMode ? "light" : "dark"}
+              >
+                {images.map((img, index) => (
+                  <Carousel.Item key={index}>
+                    <img
+                      className="d-block w-100"
+                      src={img}
+                      alt={`Slide ${index + 1}`}
+                    />
+                  </Carousel.Item>
+                ))}
+              </Carousel>
+            </Col>
+          </Row>
+          <Row className="search-bar" style={{ marginBottom: "60px" }}>
+            <button className="start-search-btn" onClick={handleStartSearch}>
+              Start Search
+            </button>
+          </Row>
+        </Container>
       </div>
     </section>
   );
