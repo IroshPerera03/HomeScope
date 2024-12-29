@@ -1,10 +1,14 @@
+.property-details {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
 .back-button {
-  margin: 10px;
-  padding: 10px 20px;
   background-color: #007bff;
   color: white;
+  padding: 10px 15px;
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
 }
 
@@ -12,19 +16,60 @@
   background-color: #0056b3;
 }
 
-.property-thumbnails {
+.property-gallery {
+  margin: 20px 0;
   display: flex;
-  gap: 10px;
-  margin-top: 10px;
+  justify-content: center;
 }
 
-.property-thumbnails img {
-  width: 100px;
-  height: 100px;
+.property-info {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.property-info h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.property-info p {
+  margin: 8px 0;
+  font-size: 16px;
+}
+
+.property-info strong {
+  color: #495057;
+}
+
+.react-tabs {
+  margin: 20px 0;
+}
+
+.react-tabs__tab-list {
+  display: flex;
+  justify-content: space-around;
+  background-color: #e9ecef;
+  padding: 10px 0;
+  border-radius: 8px;
+}
+
+.react-tabs__tab {
+  font-size: 16px;
+  padding: 10px 20px;
   cursor: pointer;
-  border: 2px solid transparent;
 }
 
-.property-thumbnails img.selected-thumbnail {
-  border-color: #007bff;
+.react-tabs__tab--selected {
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+}
+
+.react-tabs__tab-panel {
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
 }
