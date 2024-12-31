@@ -4,6 +4,8 @@ import "./searchForm.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 
 import Slider from "@mui/material/Slider";
 import DatePicker from "react-widgets/DatePicker";
@@ -36,128 +38,134 @@ const SearchForm = ({ onSearch }) => {
   };
 
   return (
-    <form className="search-form" onSubmit={handleSubmit}>
+    <Form className="search-form" onSubmit={handleSubmit}>
       <Container className="search-form-container">
-        <Row sm={1}>
-          <Col className="location" lg={3}>
-            <label htmlFor="location">Location:</label>
-            <input
-              id="location"
-              type="text"
-              value={location}
-              onChange={(e) => setLocation(e.target.value)}
-              placeholder="Enter location"
-              className="transparent-input"
-            />
+        <Row className="mb-3">
+          <Col xs={12} md={6} lg={3}>
+            <Form.Group controlId="location">
+              <Form.Label>Location:</Form.Label>
+              <Form.Control
+                type="text"
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+                placeholder="Enter location"
+              />
+            </Form.Group>
           </Col>
-          <Col lg={3}>
-            <label htmlFor="type">Type:</label>
-            <select
-              id="type"
-              value={type}
-              onChange={(e) => setType(e.target.value)}
-              className="transparent-input"
-            >
-              <option value="any">Any</option>
-              <option value="house">House</option>
-              <option value="flat">Flat</option>
-            </select>
+          <Col xs={12} md={6} lg={3}>
+            <Form.Group controlId="type">
+              <Form.Label>Type:</Form.Label>
+              <Form.Control
+                as="select"
+                value={type}
+                onChange={(e) => setType(e.target.value)}
+              >
+                <option value="any">Any</option>
+                <option value="house">House</option>
+                <option value="flat">Flat</option>
+              </Form.Control>
+            </Form.Group>
           </Col>
-          <Col className="date-range" lg={3}>
-            <label htmlFor="startDate">Start Date:</label>
-            <DatePicker
-              parse={(str) => new Date(str)}
-              placeholder="Start Date"
-              defaultValue={null}
-              onChange={(e) => setStartDate(e)}
-              className="transparent-input"
-            />
+          <Col xs={12} md={6} lg={3}>
+            <Form.Group controlId="startDate">
+              <Form.Label>Start Date:</Form.Label>
+              <DatePicker
+                parse={(str) => new Date(str)}
+                placeholder="Start Date"
+                defaultValue={null}
+                onChange={(e) => setStartDate(e)}
+              />
+            </Form.Group>
           </Col>
-          <Col className="date-range" lg={3}>
-            <label htmlFor="endDate" defaultValue={null}>
-              End Date:
-            </label>
-            <DatePicker
-              parse={(str) => new Date(str)}
-              placeholder="End Date"
-              defaultValue={null}
-              onChange={(e) => setEndDate(e)}
-              className="transparent-input"
-            />
+          <Col xs={12} md={6} lg={3}>
+            <Form.Group controlId="endDate">
+              <Form.Label>End Date:</Form.Label>
+              <DatePicker
+                parse={(str) => new Date(str)}
+                placeholder="End Date"
+                defaultValue={null}
+                onChange={(e) => setEndDate(e)}
+              />
+            </Form.Group>
           </Col>
         </Row>
+
+        <Row className="mb-3">
+          <Col xs={12} md={6} lg={3}>
+            <Form.Group controlId="minPrice">
+              <Form.Label>Min Price:</Form.Label>
+              <Slider
+                value={minPrice}
+                onChange={(e, value) => setMinPrice(value)}
+                valueLabelDisplay="auto"
+                step={100000}
+                min={0}
+                max={1000000}
+              />
+              <Form.Text>{minPrice}</Form.Text>
+            </Form.Group>
+          </Col>
+          <Col xs={12} md={6} lg={3}>
+            <Form.Group controlId="maxPrice">
+              <Form.Label>Max Price:</Form.Label>
+              <Slider
+                value={maxPrice}
+                onChange={(e, value) => setMaxPrice(value)}
+                valueLabelDisplay="auto"
+                step={100000}
+                min={0}
+                max={1000000}
+              />
+              <Form.Text>{maxPrice}</Form.Text>
+            </Form.Group>
+          </Col>
+          <Col xs={12} md={6} lg={3}>
+            <Form.Group controlId="minBedrooms">
+              <Form.Label>Min Bedrooms:</Form.Label>
+              <Form.Control
+                type="number"
+                value={minBedrooms}
+                onChange={(e) => setMinBedrooms(e.target.value)}
+                placeholder="Min Bedrooms"
+              />
+            </Form.Group>
+          </Col>
+          <Col xs={12} md={6} lg={3}>
+            <Form.Group controlId="maxBedrooms">
+              <Form.Label>Max Bedrooms:</Form.Label>
+              <Form.Control
+                type="number"
+                value={maxBedrooms}
+                onChange={(e) => setMaxBedrooms(e.target.value)}
+                placeholder="Max Bedrooms"
+              />
+            </Form.Group>
+          </Col>
+        </Row>
+
+        <Row className="mb-3">
+          <Col xs={12} lg={4}>
+            <Form.Group controlId="postcode">
+              <Form.Label>Postcode:</Form.Label>
+              <Form.Control
+                type="text"
+                value={postcode}
+                onChange={(e) => setPostcode(e.target.value)}
+                placeholder="Enter postcode"
+              />
+            </Form.Group>
+          </Col>
+        </Row>
+
         <Row>
-          <Col lg={2}>
-            <label htmlFor="minPrice">Min Price:</label>
-            <Slider
-              aria-label="Min Price"
-              value={minPrice}
-              onChange={(e, value) => setMinPrice(value)}
-              valueLabelDisplay="auto"
-              step={100000}
-              min={0}
-              max={1000000}
-              defaultValue={0}
-              marks={true}
-              className="transparent-input"
-            />
-            <span>{minPrice}</span>
+          <Col xs={12}>
+            <Button variant="primary" type="submit" className="w-100">
+              Search
+            </Button>
           </Col>
-          <Col lg={2}>
-            <label htmlFor="maxPrice">Max Price:</label>
-            <Slider
-              aria-label="Max Price"
-              value={maxPrice}
-              onChange={(e, value) => setMaxPrice(value)}
-              valueLabelDisplay="auto"
-              step={100000}
-              min={0}
-              max={1000000}
-              defaultValue={1000000}
-              marks={true}
-              className="transparent-input"
-            />
-            <span>{maxPrice}</span>
-          </Col>
-          <Col lg={2}>
-            <label htmlFor="minBedrooms">Min Bedrooms:</label>
-            <input
-              id="minBedrooms"
-              type="number"
-              value={minBedrooms}
-              onChange={(e) => setMinBedrooms(e.target.value)}
-              placeholder="min bedrooms"
-              className="transparent-input"
-            />
-          </Col>
-          <Col lg={2}>
-            <label htmlFor="maxBedrooms">Max Bedrooms:</label>
-            <input
-              id="maxBedrooms"
-              type="number"
-              value={maxBedrooms}
-              onChange={(e) => setMaxBedrooms(e.target.value)}
-              placeholder="max bedrooms"
-              className="transparent-input"
-            />
-          </Col>
-          <Col lg={4}>
-            <label htmlFor="postcode">Postcode:</label>
-            <input
-              id="postcode"
-              type="text"
-              value={postcode}
-              onChange={(e) => setPostcode(e.target.value)}
-              placeholder="postalcode"
-              className="transparent-input"
-            />
-          </Col>
-        </Row>
-        <Row lg={3}>
-          <button type="submit">Search</button>
         </Row>
       </Container>
-    </form>
+    </Form>
   );
 };
 

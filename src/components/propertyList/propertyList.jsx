@@ -1,7 +1,13 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import Image from "react-bootstrap/Image";
+import Card from "react-bootstrap/Card";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
 import DefImage from "../../assets/PropertyImages/default.jpg";
 import { FavoritesContext } from "../../context/favoritesContext";
+
 import "./propertyList.css";
 
 function PropertyList({ properties, onDragStart }) {
@@ -12,7 +18,7 @@ function PropertyList({ properties, onDragStart }) {
   }
 
   return (
-    <div className="property-list">
+    <Row className="property-list g-3">
       {properties.map((property) => {
         let imagePath;
         try {
@@ -25,37 +31,46 @@ function PropertyList({ properties, onDragStart }) {
         }
 
         return (
-          <Link
-            key={property.id}
-            to={`/property/${property.id}`}
-            className="property-card"
-            draggable
-            onDragStart={(e) => onDragStart(e, property.id)}
-          >
-            <img src={imagePath} alt={property.type} />
-            <h3>{property.type}</h3>
-            <p>
-              <strong>Location:</strong> {property.location}
-            </p>
-            <p>
-              <strong>Price:</strong> ${property.price.toLocaleString()}
-            </p>
-            <p>
-              <strong>Bedrooms:</strong> {property.bedrooms}
-            </p>
-            <button
-              className="favorite-icon"
-              onClick={(e) => {
-                e.preventDefault();
-                addFavorite(property);
-              }}
+          <Col xs={12} sm={6} md={4} lg={3} key={property.id}>
+            <Card
+              className="property-card h-100"
+              draggable
+              onDragStart={(e) => onDragStart(e, property.id)}
             >
-              ❤️
-            </button>
-          </Link>
+              <Link to={`/property/${property.id}`}>
+                <Image
+                  src={imagePath}
+                  alt={property.type}
+                  className="card-img-top"
+                  fluid
+                />
+
+                <Card.Body>
+                  <Card.Title>{property.location}</Card.Title>
+                  <Card.Subtitle>{property.type}</Card.Subtitle>
+                  <Card.Text>
+                    <strong>Price:</strong> ${property.price.toLocaleString()}
+                  </Card.Text>
+                  <Card.Text>
+                    <strong>Bedrooms:</strong> {property.bedrooms}
+                  </Card.Text>
+                  <Button
+                    variant="outline-danger"
+                    size="sm"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      addFavorite(property);
+                    }}
+                  >
+                    ❤️ Add to Favorites
+                  </Button>
+                </Card.Body>
+              </Link>
+            </Card>
+          </Col>
         );
       })}
-    </div>
+    </Row>
   );
 }
 

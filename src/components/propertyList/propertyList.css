@@ -1,68 +1,82 @@
 .property-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
   padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
   background-color: var(--bg-color);
 }
 
 .property-card {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--bg-color);
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  padding: 20px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  cursor: grab;
+  box-shadow: 0 4px 10px var(--card-shadow);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .property-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 15px var(--hover-shadow);
 }
 
 .property-card img {
   width: 100%;
-  height: 150px;
+  height: 200px;
   object-fit: cover;
-  border-radius: 4px;
-  margin-bottom: 15px;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .property-card h3 {
-  margin: 0;
-  font-size: 18px;
+  font-size: 1.25rem;
+  margin: 10px 0;
   color: var(--text-color);
+  text-align: center;
 }
 
 .property-card p {
   margin: 5px 0;
-  font-size: 14px;
-  color: var(--text-color);
+  font-size: 0.9rem;
+  color: var(--secondary-color);
+  text-align: center;
+}
+
+.property-card .card-body {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.property-card button {
+  background: none;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  font-size: 0.9rem;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.property-card button:hover {
+  background: var(--primary-color);
+  color: #fff;
 }
 
 .property-card a {
-  display: inline-block;
-  margin-top: 10px;
   text-decoration: none;
   color: var(--primary-color);
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
 }
 
 .property-card a:hover {
-  text-decoration: underline;
-}
-
-.favorite-icon {
-  background: none;
-  border: none;
-  color: var(--favorite-color);
-  font-size: 20px;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
-.favorite-icon:hover {
-  color: var(--favorite-color-hover);
+  color: darken(var(--primary-color), 10%);
 }

@@ -11,6 +11,16 @@
   transition: transform 0.3s ease;
 }
 
+@media (max-width: 768px) {
+  .favorites-bar {
+    transform: translateX(100%);
+  }
+
+  .favorites-bar.visible {
+    transform: translateX(0);
+  }
+}
+
 .favorites-bar ul {
   list-style: none;
   padding: 0;

@@ -31,6 +31,7 @@ function parseAddedToDate(added) {
 function Search() {
   const [filteredProperties, setFilteredProperties] = useState([]);
   const [searchPerformed, setSearchPerformed] = useState(false);
+  const [favoritesVisible, setFavoritesVisible] = useState(false);
   const { addFavorite } = useContext(FavoritesContext);
 
   const handleDrop = (event) => {
@@ -91,13 +92,19 @@ function Search() {
           )}
         </div>
         <div
-          className="right-section"
+          className={`right-section ${favoritesVisible ? "visible" : ""}`}
           onDrop={handleDrop}
           onDragOver={handleDragOver}
         >
           <FavoritesBar />
         </div>
       </div>
+      <button
+        className="toggle-favorites-button"
+        onClick={() => setFavoritesVisible(!favoritesVisible)}
+      >
+        {favoritesVisible ? "Hide Favorites" : "Show Favorites"}
+      </button>
     </div>
   );
 }

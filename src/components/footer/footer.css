@@ -3,9 +3,6 @@
   color: var(--text-color);
   padding: 10px 0;
   width: 100%;
-  position: fixed; /* Make the footer stick to the bottom */
-  bottom: 0;
-  left: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
