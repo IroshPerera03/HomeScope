@@ -42,7 +42,7 @@ const SearchForm = ({ onSearch }) => {
 
   return (
     <Form className="search-form" onSubmit={handleSubmit}>
-      <Container className="search-form-container glass">
+      <Container className="search-form-container">
         <Row className="mb-3">
           <Col xs={12} md={6} lg={3}>
             <Form.Group controlId="location">

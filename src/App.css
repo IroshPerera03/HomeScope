@@ -44,11 +44,15 @@ html {
   flex-grow: 1;
   background-color: var(--bg-color);
   color: var(--text-color);
+  background: url("./assets/Background/light-bg.jpg") no-repeat center center
+    fixed;
+  background-size: cover;
 }
 
 header,
 footer {
   flex: 0 0 auto;
+  background-color: transparent;
 }
 
 a {
@@ -60,6 +64,9 @@ a {
   --text-color: #ffffff;
   background-color: var(--bg-color);
   color: var(--text-color);
+  background: url("./assets/Background/dark-bg.jpeg") no-repeat center center
+    fixed;
+  background-size: cover;
 }
 
 .app-container {
@@ -73,7 +80,15 @@ a {
   background-color: var(--primary-color);
   color: var(--text-s-color);
 }
-
+.app .app-container .glass {
+  border-top: 2px solid #ffffff75;
+  border-left: 2px solid #ffffff75;
+  box-shadow: 5px 5px 12px #00000035;
+  background: #ffffff25;
+  border-radius: 15px;
+  overflow: hidden;
+  backdrop-filter: blur(4px);
+}
 @media (max-width: 1200px) {
   html {
     font-size: 15px;

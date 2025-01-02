@@ -10,12 +10,15 @@
   border-top: 2px solid #ffffff75;
   border-left: 2px solid #ffffff75;
   box-shadow: 5px 5px 12px #00000035;
-  background-color: rgba(0, 0, 0, 0.1);
+  background: #ffffff25;
   border-radius: 15px;
   overflow: hidden;
   backdrop-filter: blur(4px);
 }
 
+.property-list .property-card {
+  color: var(--text-color);
+}
 .property-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 15px var(--hover-shadow);
@@ -38,7 +41,7 @@
 .property-card p {
   margin: 5px 0;
   font-size: 0.9rem;
-  color: var(--secondary-color);
+  color: var(--text-color);
   text-align: center;
 }
 
@@ -62,13 +65,14 @@
 }
 
 .property-card button:hover {
-  background: var(--primary-color);
+  background: transparent;
   color: #fff;
+  border-color: #fff;
 }
 
 .property-card a {
   text-decoration: none;
-  color: var(--primary-color);
+  color: var(--text-color);
   font-size: 0.9rem;
   transition: color 0.2s ease;
 }
