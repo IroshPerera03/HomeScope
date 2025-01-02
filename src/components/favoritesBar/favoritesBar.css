@@ -5,7 +5,7 @@
   height: 100%;
   background-color: var(--bg-color);
   border-left: 2px solid var(--border-color);
-  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  box-shadow: -2px 0 5px var(--card-shadow);
   padding: 20px;
   overflow-y: auto;
   transition: transform 0.3s ease;
@@ -37,11 +37,16 @@
   border: 1px solid var(--border-color);
   padding: 10px;
   border-radius: 4px;
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  background: var(--hover-background-color);
+  box-shadow: 0 4px 30px var(--card-shadow);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   transition: transform 0.2s ease;
+  cursor: grab;
+}
+
+.favorite-item:active {
+  cursor: grabbing;
 }
 
 .favorite-item:hover {
@@ -71,9 +76,12 @@
   text-align: center;
   background-color: var(--bg-color);
   margin: 20px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  border-radius: 8px;
 }
 
-.favorites-drop-zone:hover {
+.favorites-drop-zone:hover,
+.favorites-drop-zone.active {
   background-color: var(--hover-background-color);
+  border-color: var(--favorite-color);
 }

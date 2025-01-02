@@ -7,10 +7,10 @@
 }
 
 .property-list .glass {
-  border-top: 2px solid #ffffff75;
-  border-left: 2px solid #ffffff75;
-  box-shadow: 5px 5px 12px #00000035;
-  background: #ffffff25;
+  border-top: 2px solid var(--border-color);
+  border-left: 2px solid var(--border-color);
+  box-shadow: 5px 5px 12px var(--card-shadow);
+  background: var(--glass-background-color);
   border-radius: 15px;
   overflow: hidden;
   backdrop-filter: blur(4px);
@@ -18,9 +18,10 @@
 
 .property-list .property-card {
   color: var(--text-color);
+  transition: all 0.4s ease;
 }
 .property-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-3px);
   box-shadow: 0 8px 15px var(--hover-shadow);
 }
 
@@ -66,8 +67,8 @@
 
 .property-card button:hover {
   background: transparent;
-  color: #fff;
-  border-color: #fff;
+  color: var(--text-s-color);
+  border-color: var(--text-s-color);
 }
 
 .property-card a {
@@ -78,5 +79,5 @@
 }
 
 .property-card a:hover {
-  color: darken(var(--primary-color), 10%);
+  color: var(--favorite-color-hover);
 }

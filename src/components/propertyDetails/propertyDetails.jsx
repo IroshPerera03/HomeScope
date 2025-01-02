@@ -38,7 +38,7 @@ function PropertyDetails() {
   const imageNames = [
     "kitchen.jpg",
     "bedroom.jpg",
-    "livingroom.jpg",
+    "living-room.jpg",
     "bathroom.jpg",
   ];
   const images = imageNames.map((name) => {

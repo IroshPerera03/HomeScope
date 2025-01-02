@@ -4,7 +4,7 @@
   padding: 20px;
   border-radius: 15px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  background: rgba(255, 255, 255, 0);
+  background: var(--glass-background-color);
   backdrop-filter: blur(4px);
   border-top: 2px solid #ffffff75;
   border-left: 2px solid #ffffff75;
@@ -24,7 +24,19 @@
   color: var(--text-color);
   margin-bottom: 4px;
 }
-
+.search-form .search-btn {
+  background-color: var(--primary-color);
+  border: solid 1px var(--primary-color);
+  border-radius: 15px;
+  scale: 0.8;
+  transition: all 0.3s ease;
+}
+.search-form .search-btn:hover {
+  background-color: transparent;
+  border: solid 1px var(--primary-color);
+  border-radius: 15px;
+  transform: scale(1);
+}
 .search-form input,
 .search-form select {
   width: 100%;
@@ -41,7 +53,7 @@
   background-color: var(--input-background-color);
   border: 1px solid var(--border-color);
 }
-.calendar-icon {
+.search-form .search-form-container .calendar-icon {
   position: absolute;
   right: 10px;
   color: var(--text-color);
@@ -53,7 +65,98 @@
   border: 1px solid var(--border-color);
   border-radius: 5px;
 }
+.search-form input::placeholder {
+  color: var(--text-color); /* Change the color */
+  opacity: 0.3; /* Ensure the opacity is set to 1 for full visibility */
+}
+.search-form .search-form-container .slider-label {
+  color: var(--text-color);
+}
+/* General styling for DatePicker container */
+.react-date-picker {
+  width: 100%;
+  font-family: inherit;
+  box-sizing: border-box;
+}
 
+.react-date-picker__wrapper {
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  color: var(--text-color);
+  padding: 0; /* Reset padding */
+  height: 40px;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box; /* Ensures borders and padding are included */
+}
+
+/* Styling the input fields */
+.react-date-picker__inputGroup {
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.react-date-picker__inputGroup__input {
+  background: transparent;
+  border: none;
+  color: var(--text-color);
+  font-size: 1rem;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  width: 100%; /* Ensure it fits within the parent */
+  box-sizing: border-box;
+}
+
+.react-date-picker__inputGroup__input::placeholder {
+  color: rgba(255, 255, 255, 0.5); /* Adjust placeholder color */
+}
+
+.react-date-picker__inputGroup__input:focus {
+  outline: none;
+}
+
+/* Adjust the calendar icon */
+.react-date-picker__button {
+  border: none;
+  color: var(--text-color); /* Use text color */
+  cursor: pointer;
+  padding: 5px;
+  margin: 0;
+}
+
+.react-date-picker__button svg {
+  fill: var(--text-s-color); /* Apply text color to the icon */
+  width: 20px;
+  height: 20px;
+}
+
+/* Custom calendar styling */
+.react-date-picker__calendar {
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  color: var(--text-color);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .react-date-picker__wrapper {
+    height: 35px;
+  }
+
+  .react-date-picker__button svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+}
 @media (max-width: 768px) {
   .search-form-container {
     padding: 10px;
@@ -78,7 +181,14 @@
   .search-form-container {
     padding: 5px;
   }
+  .react-date-picker__wrapper {
+    padding: 3px 8px;
+    height: 35px;
+  }
 
+  .react-calendar__navigation button {
+    font-size: 1rem;
+  }
   .search-form-container .row {
     margin: 5px 0;
   }

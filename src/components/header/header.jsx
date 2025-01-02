@@ -14,12 +14,14 @@ function Header({ toggleTheme, isDarkMode }) {
   return (
     <header className="header">
       <div className="logo">
-        <img
-          className="logo-image"
-          src={isDarkMode ? LogoDark : LogoLight}
-          alt="Home-Scope Logo"
-        />
-        <h1>HomeScope</h1>
+        <NavLink to="/home">
+          <img
+            className="logo-image"
+            src={isDarkMode ? LogoDark : LogoLight}
+            alt="Home-Scope Logo"
+          />
+          <h1>HomeScope</h1>
+        </NavLink>
       </div>
       <nav className={`nav-links ${isMobileMenuOpen ? "open" : ""}`}>
         <NavLink

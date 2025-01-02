@@ -73,6 +73,7 @@ const SearchForm = ({ onSearch }) => {
             <Form.Group controlId="startDate">
               <Form.Label>Start Date:</Form.Label>
               <DatePicker
+                className={"custom-date-picker"}
                 onChange={setStartDate}
                 value={startDate}
                 clearIcon={null}
@@ -83,6 +84,7 @@ const SearchForm = ({ onSearch }) => {
             <Form.Group controlId="endDate">
               <Form.Label>End Date:</Form.Label>
               <DatePicker
+                className={"custom-date-picker"}
                 onChange={setEndDate}
                 value={endDate}
                 clearIcon={null}
@@ -102,8 +104,11 @@ const SearchForm = ({ onSearch }) => {
                 step={100000}
                 min={0}
                 max={1000000}
+                sx={{
+                  color: "var(--primary-color)",
+                }}
               />
-              <Form.Text>{minPrice}</Form.Text>
+              <Form.Text className="slider-label">{minPrice}</Form.Text>
             </Form.Group>
           </Col>
           <Col xs={12} md={6} lg={3}>
@@ -116,8 +121,11 @@ const SearchForm = ({ onSearch }) => {
                 step={100000}
                 min={0}
                 max={1000000}
+                sx={{
+                  color: "var(--primary-color)",
+                }}
               />
-              <Form.Text>{maxPrice}</Form.Text>
+              <Form.Text className="slider-label">{maxPrice}</Form.Text>
             </Form.Group>
           </Col>
           <Col xs={12} md={6} lg={3}>
@@ -160,7 +168,7 @@ const SearchForm = ({ onSearch }) => {
 
         <Row>
           <Col xs={12}>
-            <Button variant="primary" type="submit" className="w-100">
+            <Button type="submit" className="w-100 search-btn">
               Search
             </Button>
           </Col>
