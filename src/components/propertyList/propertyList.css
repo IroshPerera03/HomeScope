@@ -4,20 +4,16 @@
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
-  background-color: var(--bg-color);
 }
 
-.property-card {
-  background: var(--bg-color);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  box-shadow: 0 4px 10px var(--card-shadow);
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
-  cursor: pointer;
+.property-list .glass {
+  border-top: 2px solid #ffffff75;
+  border-left: 2px solid #ffffff75;
+  box-shadow: 5px 5px 12px #00000035;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  backdrop-filter: blur(4px);
 }
 
 .property-card:hover {

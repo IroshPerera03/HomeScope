@@ -1,5 +1,8 @@
 import React, { useState } from "react";
+
 import "./searchForm.css";
+import "react-date-picker/dist/DatePicker.css";
+import "react-calendar/dist/Calendar.css";
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -8,7 +11,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
 import Slider from "@mui/material/Slider";
-import DatePicker from "react-widgets/DatePicker";
+import DatePicker from "react-date-picker";
 
 const SearchForm = ({ onSearch }) => {
   const [location, setLocation] = useState("");
@@ -39,7 +42,7 @@ const SearchForm = ({ onSearch }) => {
 
   return (
     <Form className="search-form" onSubmit={handleSubmit}>
-      <Container className="search-form-container">
+      <Container className="search-form-container glass">
         <Row className="mb-3">
           <Col xs={12} md={6} lg={3}>
             <Form.Group controlId="location">
@@ -70,10 +73,9 @@ const SearchForm = ({ onSearch }) => {
             <Form.Group controlId="startDate">
               <Form.Label>Start Date:</Form.Label>
               <DatePicker
-                parse={(str) => new Date(str)}
-                placeholder="Start Date"
-                defaultValue={null}
-                onChange={(e) => setStartDate(e)}
+                onChange={setStartDate}
+                value={startDate}
+                clearIcon={null}
               />
             </Form.Group>
           </Col>
@@ -81,10 +83,9 @@ const SearchForm = ({ onSearch }) => {
             <Form.Group controlId="endDate">
               <Form.Label>End Date:</Form.Label>
               <DatePicker
-                parse={(str) => new Date(str)}
-                placeholder="End Date"
-                defaultValue={null}
-                onChange={(e) => setEndDate(e)}
+                onChange={setEndDate}
+                value={endDate}
+                clearIcon={null}
               />
             </Form.Group>
           </Col>

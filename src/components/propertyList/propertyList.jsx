@@ -33,7 +33,7 @@ function PropertyList({ properties, onDragStart }) {
         return (
           <Col xs={12} sm={6} md={4} lg={3} key={property.id}>
             <Card
-              className="property-card h-100"
+              className="property-card h-100 glass"
               draggable
               onDragStart={(e) => onDragStart(e, property.id)}
             >

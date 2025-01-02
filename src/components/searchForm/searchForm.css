@@ -12,6 +12,7 @@
 
 .search-form-container .row {
   margin: 20px 0;
+  text-align: left;
 }
 
 .search-form-container .col {
@@ -25,8 +26,7 @@
 }
 
 .search-form input,
-.search-form select,
-.search-form .rw-widget-picker {
+.search-form select {
   width: 100%;
   padding: 10px;
   border-radius: 5px;
@@ -40,6 +40,18 @@
   border-radius: 5px;
   background-color: var(--input-background-color);
   border: 1px solid var(--border-color);
+}
+.calendar-icon {
+  position: absolute;
+  right: 10px;
+  color: var(--text-color);
+  pointer-events: none;
+}
+
+.search-form input,
+.search-form select {
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
 }
 
 @media (max-width: 768px) {

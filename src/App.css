@@ -4,11 +4,9 @@
   --text-s-color: #ffffff;
   --primary-color: #1c563b;
   --border-color: #ccc;
-  --input-background-color: #f9f9f9;
+  --input-background-color: transparent;
   --button-text-color: #ffffff;
   --button-background-color: #000000;
-  --primary-color-hover: #0056b3;
-  --hover-background-color: #e9ecef;
   --favorite-color: #ff6b6b;
   --favorite-color-hover: #ff3b3b;
   --item-background-color: #ffffff;
@@ -16,6 +14,16 @@
   --card-bg: #fff;
   --card-shadow: rgba(0, 0, 0, 0.1);
   --hover-shadow: rgba(0, 0, 0, 0.2);
+  --hover-background-color: rgb(255, 255, 255, 0.1);
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 html,
 body {
@@ -25,16 +33,45 @@ body {
   flex-direction: column;
 }
 
-body,
-html {
-  height: 100%;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-}
-
 html {
   font-size: 16px;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  flex-grow: 1;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+header,
+footer {
+  flex: 0 0 auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+.dark-mode {
+  --bg-color: #000000;
+  --text-color: #ffffff;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.btn {
+  border-radius: 5px;
+  padding: 10px 20px;
+  background-color: var(--primary-color);
+  color: var(--text-s-color);
 }
 
 @media (max-width: 1200px) {
@@ -59,44 +96,4 @@ html {
   html {
     font-size: 12px;
   }
-}
-
-#root {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-main {
-  flex-grow: 1;
-}
-
-.App {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-}
-
-header,
-footer {
-  flex: 0 0 auto;
-}
-
-a {
-  text-decoration: none;
-}
-
-.dark-mode {
-  --bg-color: #000000;
-  --text-color: #ffffff;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-}
-
-.app-container {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
 }

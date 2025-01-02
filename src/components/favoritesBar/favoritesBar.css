@@ -11,6 +11,10 @@
   transition: transform 0.3s ease;
 }
 
+.favorites-bar:hover {
+  background-color: var(--hover-background-color);
+}
+
 @media (max-width: 768px) {
   .favorites-bar {
     transform: translateX(100%);
