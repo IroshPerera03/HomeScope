@@ -23,6 +23,7 @@ function PropertyList({ properties, onDragStart }) {
         let imagePath;
         try {
           imagePath = require(`../../assets/PropertyImages/${property.id}/${property.picture}`);
+          console.log(imagePath);
         } catch (error) {
           console.error(
             `Image not found for property ${property.id}: ${property.picture}`

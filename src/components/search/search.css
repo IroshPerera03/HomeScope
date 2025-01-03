@@ -1,3 +1,4 @@
+/* Container for the search page */
 .search-page {
   padding: 20px;
   display: flex;
@@ -6,12 +7,14 @@
   height: 100%;
 }
 
+/* Styling for the search form */
 .search-form {
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
 }
 
+/* Styling for buttons within the search form */
 .search-form button {
   padding: 10px 20px;
   font-size: 16px;
@@ -22,11 +25,13 @@
   cursor: pointer;
 }
 
+/* Main container styling */
 .main-container {
   display: flex;
   flex-grow: 1;
 }
 
+/* Main content area styling */
 .main-content {
   flex: 1;
   margin-right: 300px;
@@ -34,6 +39,7 @@
   box-sizing: border-box;
 }
 
+/* Styling for the right section (favorites) */
 .right-section {
   position: fixed;
   top: 100px;
@@ -46,10 +52,12 @@
   transition: transform 0.3s ease;
 }
 
+/* Visibility styling for the right section */
 .right-section.visible {
   transform: translateX(0);
 }
 
+/* Styling for the toggle favorites button */
 .toggle-favorites-button {
   display: none;
   position: fixed;
@@ -63,6 +71,7 @@
   cursor: pointer;
 }
 
+/* Responsive adjustments for main content and right section */
 @media (max-width: 768px) {
   .main-content {
     margin-right: 0;

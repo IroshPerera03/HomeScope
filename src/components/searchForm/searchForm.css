@@ -1,3 +1,4 @@
+/* Container for the search form with glass effect */
 .search-form-container {
   align-items: center;
   justify-content: center;
@@ -10,20 +11,25 @@
   border-left: 2px solid #ffffff75;
 }
 
+/* Styling for rows within the search form container */
 .search-form-container .row {
   margin: 20px 0;
   text-align: left;
 }
 
+/* Styling for columns within the search form container */
 .search-form-container .col {
   padding: 10px;
 }
 
+/* Styling for labels within the search form */
 .search-form label {
   font-weight: bold;
   color: var(--text-color);
   margin-bottom: 4px;
 }
+
+/* Styling for the search button */
 .search-form .search-btn {
   background-color: var(--primary-color);
   border: solid 1px var(--primary-color);
@@ -31,12 +37,16 @@
   scale: 0.8;
   transition: all 0.3s ease;
 }
+
+/* Hover effect for the search button */
 .search-form .search-btn:hover {
   background-color: transparent;
   border: solid 1px var(--primary-color);
   border-radius: 15px;
   transform: scale(1);
 }
+
+/* Styling for input and select elements within the search form */
 .search-form input,
 .search-form select {
   width: 100%;
@@ -47,12 +57,15 @@
   color: var(--text-color);
 }
 
+/* Styling for location input */
 .location {
   padding: 10px;
   border-radius: 5px;
   background-color: var(--input-background-color);
   border: 1px solid var(--border-color);
 }
+
+/* Styling for the calendar icon within the search form */
 .search-form .search-form-container .calendar-icon {
   position: absolute;
   right: 10px;
@@ -60,18 +73,24 @@
   pointer-events: none;
 }
 
+/* Duplicate styling for input and select elements */
 .search-form input,
 .search-form select {
   border: 1px solid var(--border-color);
   border-radius: 5px;
 }
+
+/* Placeholder styling for input elements */
 .search-form input::placeholder {
   color: var(--text-color); /* Change the color */
   opacity: 0.3; /* Ensure the opacity is set to 1 for full visibility */
 }
+
+/* Styling for slider labels within the search form */
 .search-form .search-form-container .slider-label {
   color: var(--text-color);
 }
+
 /* General styling for DatePicker container */
 .react-date-picker {
   width: 100%;
@@ -79,6 +98,7 @@
   box-sizing: border-box;
 }
 
+/* Wrapper styling for DatePicker */
 .react-date-picker__wrapper {
   border: 1px solid var(--border-color);
   border-radius: 5px;
@@ -90,7 +110,7 @@
   box-sizing: border-box; /* Ensures borders and padding are included */
 }
 
-/* Styling the input fields */
+/* Styling the input fields within DatePicker */
 .react-date-picker__inputGroup {
   color: var(--text-color);
   display: flex;
@@ -99,6 +119,7 @@
   flex-grow: 1;
 }
 
+/* Styling for individual input fields within DatePicker */
 .react-date-picker__inputGroup__input {
   background: transparent;
   border: none;
@@ -111,15 +132,17 @@
   box-sizing: border-box;
 }
 
+/* Placeholder styling for DatePicker input fields */
 .react-date-picker__inputGroup__input::placeholder {
   color: rgba(255, 255, 255, 0.5); /* Adjust placeholder color */
 }
 
+/* Focus styling for DatePicker input fields */
 .react-date-picker__inputGroup__input:focus {
   outline: none;
 }
 
-/* Adjust the calendar icon */
+/* Adjust the calendar icon within DatePicker */
 .react-date-picker__button {
   border: none;
   color: var(--text-color); /* Use text color */
@@ -128,6 +151,7 @@
   margin: 0;
 }
 
+/* Styling for the calendar icon SVG */
 .react-date-picker__button svg {
   fill: var(--text-s-color); /* Apply text color to the icon */
   width: 20px;
@@ -142,7 +166,7 @@
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Responsive adjustments */
+/* Responsive adjustments for DatePicker */
 @media (max-width: 576px) {
   .react-date-picker__wrapper {
     height: 35px;
@@ -154,9 +178,7 @@
   }
 }
 
-/* Responsive adjustments */
-@media (max-width: 576px) {
-}
+/* Responsive adjustments for search form container */
 @media (max-width: 768px) {
   .search-form-container {
     padding: 10px;
@@ -177,6 +199,7 @@
   }
 }
 
+/* Additional responsive adjustments for search form container */
 @media (max-width: 576px) {
   .search-form-container {
     padding: 5px;

@@ -1,3 +1,4 @@
+/* Container for the hero section */
 .hero {
   background-color: transparent;
   padding: 20px;
@@ -9,6 +10,7 @@
   align-items: center;
 }
 
+/* Overlay styling for the hero section */
 .overlay {
   width: 100%;
   max-width: 1200px;
@@ -16,11 +18,13 @@
   text-align: center;
 }
 
+/* Content styling within the hero section */
 .hero-content {
   margin-bottom: 20px;
   gap: 20px;
 }
 
+/* Text styling within the hero section */
 .hero-text {
   font-size: 2.5em;
   padding: 20px;
@@ -28,12 +32,14 @@
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
+/* Paragraph styling within the hero text */
 .hero-text p {
   font-size: 1.2em;
   color: var(--secondary-color);
   margin-top: 10px;
 }
 
+/* Carousel styling within the hero section */
 .hero-carousel {
   padding: 20px;
   width: 100%;
@@ -41,6 +47,7 @@
   border-radius: 35px;
 }
 
+/* Image styling within the hero carousel */
 .hero-carousel img {
   background-color: var(--bg-color);
   max-width: 100%;
@@ -49,6 +56,7 @@
   transition: opacity 1s ease-in-out;
 }
 
+/* Styling for the start search button */
 .start-search-btn {
   font-size: 20px;
   padding: 20px;
@@ -62,17 +70,20 @@
   transition: all 0.4s ease;
 }
 
+/* Hover effect for the start search button */
 .start-search-btn:hover {
   background-color: transparent;
   color: var(--primary-color);
   border: 2px solid var(--primary-color);
 }
 
+/* Fade effect for carousel items */
 .carousel-fade .carousel-item {
   transition: opacity 1500ms ease-in-out;
   opacity: 0;
 }
 
+/* Active state styling for carousel items */
 .carousel-fade .carousel-item-next,
 .carousel-fade .carousel-item-prev,
 .carousel-fade .carousel-item.active {

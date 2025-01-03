@@ -1,3 +1,4 @@
+/* Container for the favorites bar */
 .favorites-bar {
   position: fixed;
   width: 300px;
@@ -11,10 +12,12 @@
   transition: transform 0.3s ease;
 }
 
+/* Hover effect for the favorites bar */
 .favorites-bar:hover {
   background-color: var(--hover-background-color);
 }
 
+/* Responsive adjustments for the favorites bar */
 @media (max-width: 768px) {
   .favorites-bar {
     transform: translateX(100%);
@@ -25,11 +28,13 @@
   }
 }
 
+/* Styling for the list within the favorites bar */
 .favorites-bar ul {
   list-style: none;
   padding: 0;
 }
 
+/* Styling for individual favorite items */
 .favorite-item {
   display: flex;
   align-items: center;
@@ -45,14 +50,17 @@
   cursor: grab;
 }
 
+/* Active state styling for favorite items */
 .favorite-item:active {
   cursor: grabbing;
 }
 
+/* Hover effect for favorite items */
 .favorite-item:hover {
   transform: translateY(-5px);
 }
 
+/* Styling for images within favorite items */
 .favorite-item img {
   width: 50px;
   height: 50px;
@@ -60,6 +68,7 @@
   border-radius: 4px;
 }
 
+/* Styling for the clear button */
 .clear-button {
   width: 100%;
   padding: 10px;
@@ -70,6 +79,7 @@
   margin-top: 20px;
 }
 
+/* Styling for the drop zone within the favorites bar */
 .favorites-drop-zone {
   border: 2px dashed var(--border-color);
   padding: 20px;
@@ -80,6 +90,7 @@
   border-radius: 8px;
 }
 
+/* Hover and active state styling for the drop zone */
 .favorites-drop-zone:hover,
 .favorites-drop-zone.active {
   background-color: var(--hover-background-color);

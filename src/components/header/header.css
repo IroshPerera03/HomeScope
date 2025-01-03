@@ -1,3 +1,4 @@
+/* Container for the header */
 .header {
   display: flex;
   justify-content: space-between;
@@ -6,6 +7,7 @@
   background-color: var(--bg-color);
 }
 
+/* Styling for the logo link */
 .header .logo a {
   cursor: pointer;
   display: flex;
@@ -14,6 +16,7 @@
   text-decoration: none;
 }
 
+/* Styling for the logo text */
 .logo {
   font-size: 1.5em;
   font-weight: bold;
@@ -21,17 +24,20 @@
   color: var(--text-color);
 }
 
+/* Styling for the logo image */
 .logo-image {
   width: 50px;
   height: 50px;
   margin-right: 10px;
 }
 
+/* Styling for the navigation links */
 .nav-links {
   display: flex;
   gap: 60px;
 }
 
+/* Styling for individual navigation links */
 .nav-links a {
   color: var(--text-color);
   text-decoration: none;
@@ -39,22 +45,26 @@
   transition: transform 0.3s ease, font-size 0.3s ease;
 }
 
+/* Hover effect for navigation links */
 .nav-links a:hover {
   transform: scale(1.2);
   font-size: 1.2em;
 }
 
+/* Active state styling for navigation links */
 .nav-links .active {
   font-size: large;
   font-weight: 600;
   border-bottom: 2px solid var(--text-color);
 }
 
+/* Styling for header actions (buttons) */
 .header-actions {
   display: flex;
   gap: 10px;
 }
 
+/* Styling for the dark mode switch button */
 .dark-mode-switch {
   background-color: var(--button-background-color);
   color: var(--button-text-color);
@@ -63,6 +73,7 @@
   cursor: pointer;
 }
 
+/* Styling for the sign-up button */
 .sign-up {
   background-color: var(--primary-color);
   color: var(--button-text-color);
@@ -71,6 +82,7 @@
   cursor: pointer;
 }
 
+/* Styling for the hamburger menu button */
 .hamburger-menu {
   display: none;
   background: none;
@@ -80,6 +92,7 @@
   color: var(--text-color);
 }
 
+/* Responsive adjustments for navigation links and hamburger menu */
 @media (max-width: 768px) {
   .nav-links {
     display: none;
