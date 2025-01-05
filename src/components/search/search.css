@@ -14,13 +14,19 @@
   margin-bottom: 20px;
 }
 
-/* Styling for buttons within the search form */
 .search-form button {
+  padding: 12px;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+}
+
+/* Styling for buttons within the search form/this actually changes the date picker calendar button styles */
+.search-form .search-btn {
   padding: 10px 20px;
   font-size: 16px;
-  background-color: var(--primary-color);
-  color: var(--button-text-color);
-  border: none;
+  background-color: var(--bg-color);
+  color: var(--text-s-color);
+  border: 1px solid var(--primary-color);
   border-radius: 4px;
   cursor: pointer;
 }

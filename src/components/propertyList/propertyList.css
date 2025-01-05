@@ -18,11 +18,13 @@
 
 .property-list .property-card {
   color: var(--text-color);
-  transition: all 0.4s ease;
+  transition: all 0.7s ease;
 }
 .property-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 15px var(--hover-shadow);
+  scale: 1.1;
+  z-index: 1000;
 }
 
 .property-card img {

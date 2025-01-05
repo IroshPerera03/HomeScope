@@ -42,6 +42,7 @@
 .search-form .search-btn:hover {
   background-color: transparent;
   border: solid 1px var(--primary-color);
+  color: var(--primary-color);
   border-radius: 15px;
   transform: scale(1);
 }
@@ -63,14 +64,6 @@
   border-radius: 5px;
   background-color: var(--input-background-color);
   border: 1px solid var(--border-color);
-}
-
-/* Styling for the calendar icon within the search form */
-.search-form .search-form-container .calendar-icon {
-  position: absolute;
-  right: 10px;
-  color: var(--text-color);
-  pointer-events: none;
 }
 
 /* Duplicate styling for input and select elements */
@@ -96,6 +89,7 @@
   width: 100%;
   font-family: inherit;
   box-sizing: border-box;
+  color: var(--primary-color);
 }
 
 /* Wrapper styling for DatePicker */
@@ -108,6 +102,10 @@
   display: flex;
   align-items: center;
   box-sizing: border-box; /* Ensures borders and padding are included */
+}
+
+.search-form .search-form-container .react-calendar {
+  background: transparent;
 }
 
 /* Styling the input fields within DatePicker */
@@ -123,7 +121,7 @@
 .react-date-picker__inputGroup__input {
   background: transparent;
   border: none;
-  color: var(--text-color);
+  color: var(--text-s-color);
   font-size: 1rem;
   text-align: center;
   padding: 0;
@@ -131,19 +129,28 @@
   width: 100%; /* Ensure it fits within the parent */
   box-sizing: border-box;
 }
+.react-calendar__navigation {
+  background-color: var(--primary-color);
+}
 
+.react-calendar__month-view__weekdays {
+  background-color: var(--primary-color);
+}
 /* Placeholder styling for DatePicker input fields */
 .react-date-picker__inputGroup__input::placeholder {
   color: rgba(255, 255, 255, 0.5); /* Adjust placeholder color */
 }
 
 /* Focus styling for DatePicker input fields */
-.react-date-picker__inputGroup__input:focus {
+.search-form
+  .search-form-container
+  .react-date-picker__inputGroup__input:focus {
   outline: none;
+  color: var(--primary-color);
 }
 
 /* Adjust the calendar icon within DatePicker */
-.react-date-picker__button {
+.search-form .search-form-container .react-date-picker__button {
   border: none;
   color: var(--text-color); /* Use text color */
   cursor: pointer;
@@ -165,7 +172,15 @@
   color: var(--text-color);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
-
+.react-date-picker__inputGroup__input:invalid {
+  background-color: var(--primary-color);
+}
+.search-form-container
+  .react-date-picker__wrapper
+  .react-date-picker__inputGroup__input {
+  color: var(--text-s-color);
+  font-size: 1rem;
+}
 /* Responsive adjustments for DatePicker */
 @media (max-width: 576px) {
   .react-date-picker__wrapper {
