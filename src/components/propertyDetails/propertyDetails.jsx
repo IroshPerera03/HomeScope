@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import DefImage from "../../assets/PropertyImages/default.jpg";
 import propertiesData from "../../data/properties.json";
@@ -13,12 +13,32 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import TabContent from "react-bootstrap/TabContent";
+import FloorPlanImage from "../../assets/PropertyImages/Floor-Plan.png";
+import { FavoritesContext } from "../../context/favoritesContext.js";
 
+import "./propertyDetails.css";
+
+/*************  ✨ Codeium Command ⭐  *************/
+/**
+ * PropertyDetails component renders detailed information about a specific property.
+ * It uses the `id` from URL parameters to find the relevant property data.
+ * The component includes an image gallery, property details, and tabs for additional information
+ * such as long description, floor plan, and a Google Map view.
+ * Users can navigate back to search results or add the property to favorites.
+ *
+ * - Utilizes React Router for navigation and location handling.
+ * - Dynamically loads property images using `require.context`.
+ * - Integrates with the FavoritesContext to provide "Add to Favorite" functionality.
+ * - Displays additional property details in tabs with React Tabs library.
+ */
+
+/******  6d29d658-90bb-4788-b525-f996624e54ef  *******/
 function PropertyDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
   const property = propertiesData.properties.find((p) => p.id === id);
+  const { addFavorite } = useContext(FavoritesContext);
 
   const handleBackClick = () => {
     if (location.state && location.state.fromSearch) {
@@ -60,7 +80,11 @@ function PropertyDetails() {
     <Container fluid className="property-details">
       <Row>
         <Col md={9}>
-          <Button variant="primary" className="mb-4" onClick={handleBackClick}>
+          <Button
+            variant="primary"
+            className="back-btn mb-4"
+            onClick={handleBackClick}
+          >
             Back to Search Results
           </Button>
 
@@ -88,13 +112,20 @@ function PropertyDetails() {
                     <strong>Date Added:</strong>{" "}
                     {`${property.added.day} ${property.added.month} ${property.added.year}`}
                   </Card.Text>
+                  <Button
+                    variant="success"
+                    size="sm"
+                    onClick={() => addFavorite(property)}
+                  >
+                    Add to Favorite
+                  </Button>
                 </Card.Body>
               </Card>
             </Col>
           </Row>
 
           <Tabs>
-            <TabList className="react-tabs__tab-list bg-light rounded">
+            <TabList className="react-tabs__tab-list rounded">
               <Tab>Long Description</Tab>
               <Tab>Floor Plan</Tab>
               <Tab>Google Map</Tab>
@@ -107,7 +138,7 @@ function PropertyDetails() {
             <TabPanel>
               <TabContent>
                 <img
-                  src={property.floorPlan}
+                  src={FloorPlanImage}
                   alt="Floor Plan"
                   className="img-fluid"
                 />

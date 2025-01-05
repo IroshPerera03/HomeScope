@@ -3,12 +3,18 @@
 }
 
 .property-info {
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-top: 2px solid var(--border-color);
+  border-left: 2px solid var(--border-color);
+  box-shadow: 5px 5px 12px var(--card-shadow);
+  color: var(--text-s-color);
+  background: var(--hover-background-color);
+  border-radius: 15px;
+  overflow: hidden;
+  backdrop-filter: blur(4px);
 }
 
 .react-tabs__tab-list {
+  background-color: var(--bg-color) !important;
   margin-top: 20px;
   display: flex;
   justify-content: space-between;
@@ -16,19 +22,44 @@
 }
 
 .react-tabs__tab {
+  background-color: var(--bg-color);
   padding: 10px 20px;
   cursor: pointer;
   border-radius: 5px;
 }
 
 .react-tabs__tab--selected {
-  background-color: #007bff;
-  color: #fff;
+  background-color: var(--primary-color);
+  color: var(--text-s-color);
 }
 
+.property-details .card {
+  color: var(--text-color);
+  border-top: 2px solid var(--border-color);
+  border-left: 2px solid var(--border-color);
+  box-shadow: 5px 5px 12px var(--card-shadow);
+  background: var(--hover-background-color);
+  border-radius: 15px;
+  overflow: hidden;
+  backdrop-filter: blur(4px);
+}
 .react-tabs__tab-panel {
-  margin-top: 20px;
-  background-color: #f9f9f9;
-  padding: 20px;
-  border-radius: 8px;
+  border-top: 2px solid var(--border-color);
+  border-left: 2px solid var(--border-color);
+  box-shadow: 5px 5px 12px var(--card-shadow);
+  background: var(--hover-background-color);
+  border-radius: 15px;
+  overflow: hidden;
+  backdrop-filter: blur(4px);
+}
+.property-details .back-btn {
+  color: var(--text-s-color);
+  border: none;
+  background: var(--primary-color);
+  transition: all 0.5s ease-in-out;
+}
+.property-details .back-btn:hover {
+  color: var(--text-color);
+  background: transparent;
+  border: 1px solid var(--primary-color);
 }
