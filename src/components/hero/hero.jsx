@@ -1,13 +1,14 @@
-import React from "react";
+import React from "react"; // Import necessary modules and hooks from React
 import { useNavigate } from "react-router-dom";
-import { Carousel } from "react-bootstrap";
-import "../hero/hero.css";
 
+import "../hero/hero.css"; // Import CSS for styling
+
+import { Carousel } from "react-bootstrap"; // Import necessary components
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-import DayImg1 from "../../assets/HeroImages/day1.png";
+import DayImg1 from "../../assets/HeroImages/day1.png"; // Import images
 import DayImg2 from "../../assets/HeroImages/day2.png";
 import DayImg3 from "../../assets/HeroImages/day3.png";
 import DayImg4 from "../../assets/HeroImages/day4.png";
@@ -17,14 +18,15 @@ import NightImg3 from "../../assets/HeroImages/night3.png";
 import NightImg4 from "../../assets/HeroImages/night4.png";
 
 function Hero({ isDarkMode }) {
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // Navigation hook
 
   const handleStartSearch = () => {
-    navigate("/search");
+    navigate("/search"); // Navigate to search page
   };
+
   const dayImages = [DayImg1, DayImg2, DayImg3, DayImg4];
   const nightImages = [NightImg1, NightImg2, NightImg3, NightImg4];
-  const images = isDarkMode ? nightImages : dayImages;
+  const images = isDarkMode ? nightImages : dayImages; // Select images based on dark mode
 
   return (
     <section className="hero">

@@ -1,11 +1,17 @@
-import React, { useState, useContext } from "react";
-import propertiesData from "../../data/properties.json";
+import React, { useState, useContext } from "react"; // Import necessary modules and hooks from React
+
+import propertiesData from "../../data/properties.json"; // Import property data
+// Import necessary components
 import PropertyList from "../propertyList/propertyList.jsx";
-import "../search/search.css";
 import SearchForm from "../searchForm/searchForm.jsx";
 import FavoritesBar from "../favoritesBar/favoritesBar.jsx";
+
+// Import CSS for styling
+import "../search/search.css";
+// Import necessary context
 import { FavoritesContext } from "../../context/favoritesContext.js";
 
+// Parse the added date from the property data
 function parseAddedToDate(added) {
   const monthNames = [
     "January",
@@ -29,11 +35,13 @@ function parseAddedToDate(added) {
 }
 
 function Search() {
+  // State variables for search results and UI state
   const [filteredProperties, setFilteredProperties] = useState([]);
   const [searchPerformed, setSearchPerformed] = useState(false);
   const [favoritesVisible, setFavoritesVisible] = useState(false);
   const { addFavorite } = useContext(FavoritesContext);
 
+  // Handle drop event for adding a property to favorites
   const handleDrop = (event) => {
     event.preventDefault();
     const propertyId = event.dataTransfer.getData("propertyId");
@@ -41,10 +49,12 @@ function Search() {
     if (property) addFavorite(property);
   };
 
+  // Handle drag over event
   const handleDragOver = (event) => {
     event.preventDefault();
   };
 
+  // Handle search form submission
   const handleSearch = (searchParams) => {
     const results = propertiesData.properties.filter((property) => {
       const date = parseAddedToDate(property.added);

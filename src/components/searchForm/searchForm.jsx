@@ -1,19 +1,20 @@
-import React, { useState } from "react";
+import React, { useState } from "react"; // Import necessary modules and hooks from React
 
-import "./searchForm.css";
+import "./searchForm.css"; // Import CSS for styling
 import "react-date-picker/dist/DatePicker.css";
 import "react-calendar/dist/Calendar.css";
 
+// Import necessary components
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-
 import Slider from "@mui/material/Slider";
 import DatePicker from "react-date-picker";
 
 const SearchForm = ({ onSearch }) => {
+  // State variables for form inputs
   const [location, setLocation] = useState("");
   const [type, setType] = useState("any");
   const [minPrice, setMinPrice] = useState(0);
@@ -24,6 +25,7 @@ const SearchForm = ({ onSearch }) => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
 
+  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     const searchParams = {
@@ -37,7 +39,7 @@ const SearchForm = ({ onSearch }) => {
       endDate,
       postcode,
     };
-    onSearch(searchParams);
+    onSearch(searchParams); // Call onSearch with search parameters
   };
 
   return (
@@ -66,6 +68,7 @@ const SearchForm = ({ onSearch }) => {
                 <option value="any">Any</option>
                 <option value="house">House</option>
                 <option value="flat">Flat</option>
+                <option value="bungalow">Bungalow</option>
               </Form.Control>
             </Form.Group>
           </Col>
@@ -164,10 +167,8 @@ const SearchForm = ({ onSearch }) => {
               />
             </Form.Group>
           </Col>
-        </Row>
 
-        <Row>
-          <Col xs={12}>
+          <Col xs={12} lg={8} className="d-flex align-items-end">
             <Button type="submit" className="w-100 search-btn">
               Search
             </Button>

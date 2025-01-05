@@ -1,7 +1,10 @@
-import React, { useContext } from "react";
+import React, { useContext } from "react"; // Import necessary modules and hooks from React
 import { useParams, useNavigate, useLocation } from "react-router-dom";
+// Import Images and data
 import DefImage from "../../assets/PropertyImages/default.jpg";
 import propertiesData from "../../data/properties.json";
+
+// Import necessary components
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import ImageGallery from "react-image-gallery";
@@ -14,37 +17,26 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import TabContent from "react-bootstrap/TabContent";
 import FloorPlanImage from "../../assets/PropertyImages/Floor-Plan.png";
-import { FavoritesContext } from "../../context/favoritesContext.js";
 
+// Import context
+import { FavoritesContext } from "../../context/favoritesContext.js";
+// Import CSS for styling
 import "./propertyDetails.css";
 
-/*************  ✨ Codeium Command ⭐  *************/
-/**
- * PropertyDetails component renders detailed information about a specific property.
- * It uses the `id` from URL parameters to find the relevant property data.
- * The component includes an image gallery, property details, and tabs for additional information
- * such as long description, floor plan, and a Google Map view.
- * Users can navigate back to search results or add the property to favorites.
- *
- * - Utilizes React Router for navigation and location handling.
- * - Dynamically loads property images using `require.context`.
- * - Integrates with the FavoritesContext to provide "Add to Favorite" functionality.
- * - Displays additional property details in tabs with React Tabs library.
- */
+const API_KEY = "AIzaSyDDyygiZ9eUMZlCtm3MMkewpPU4I_EFFSw";
 
-/******  6d29d658-90bb-4788-b525-f996624e54ef  *******/
 function PropertyDetails() {
-  const { id } = useParams();
-  const navigate = useNavigate();
-  const location = useLocation();
-  const property = propertiesData.properties.find((p) => p.id === id);
-  const { addFavorite } = useContext(FavoritesContext);
+  const { id } = useParams(); // Get property ID from URL parameters
+  const navigate = useNavigate(); // Navigation hook
+  const location = useLocation(); // Location hook
+  const property = propertiesData.properties.find((p) => p.id === id); // Find property by ID
+  const { addFavorite } = useContext(FavoritesContext); // Get addFavorite function from context
 
   const handleBackClick = () => {
     if (location.state && location.state.fromSearch) {
-      navigate(location.state.fromSearch);
+      navigate(location.state.fromSearch); // Navigate back to search results
     } else {
-      navigate(-1);
+      navigate(-1); // Navigate back to previous page
     }
   };
 
@@ -100,7 +92,7 @@ function PropertyDetails() {
                     <strong>Location:</strong> {property.location}
                   </Card.Text>
                   <Card.Text>
-                    <strong>Price:</strong> £{property.price.toLocaleString()}
+                    <strong>Price:</strong> Rs.{property.price.toLocaleString()}
                   </Card.Text>
                   <Card.Text>
                     <strong>Bedrooms:</strong> {property.bedrooms}
@@ -147,9 +139,9 @@ function PropertyDetails() {
             <TabPanel>
               <TabContent>
                 <iframe
-                  src={`https://www.google.com/maps/embed/v1/place?key=${
-                    process.env.REACT_APP_GOOGLE_MAPS_API_KEY
-                  }&q=${encodeURIComponent(property.location)}`}
+                  src={`https://www.google.com/maps/embed/v1/place?key=${API_KEY}&q=${encodeURIComponent(
+                    property.location
+                  )}`}
                   width="100%"
                   height="450"
                   style={{ border: 0 }}

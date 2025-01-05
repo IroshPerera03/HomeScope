@@ -4,14 +4,14 @@ import "./footer.css";
 function Footer() {
   const [currentDateTime, setCurrentDateTime] = useState(
     new Date().toLocaleString()
-  );
+  ); // State for current date and time
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentDateTime(new Date().toLocaleString());
+      setCurrentDateTime(new Date().toLocaleString()); // Update date and time every second
     }, 1000);
 
-    return () => clearInterval(timer);
+    return () => clearInterval(timer); // Cleanup timer on component unmount
   }, []);
 
   return (

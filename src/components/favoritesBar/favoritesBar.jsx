@@ -6,11 +6,11 @@ import "./favoritesBar.css";
 
 const FavoritesBar = () => {
   const { favorites, removeFavorite, clearFavorites } =
-    useContext(FavoritesContext);
-  const favoritesBarRef = useRef(null);
+    useContext(FavoritesContext); // Get favorites and functions from context
+  const favoritesBarRef = useRef(null); // Reference to favorites bar
 
   const handleDragStart = (e, propertyId) => {
-    e.dataTransfer.setData("text/plain", propertyId);
+    e.dataTransfer.setData("text/plain", propertyId); // Set property ID on drag start
   };
 
   const handleDragEnd = (e, propertyId) => {
@@ -23,7 +23,7 @@ const FavoritesBar = () => {
       clientY < favoritesBarBounds.top ||
       clientY > favoritesBarBounds.bottom
     ) {
-      removeFavorite(propertyId);
+      removeFavorite(propertyId); // Remove favorite if dragged outside bounds
     }
   };
 

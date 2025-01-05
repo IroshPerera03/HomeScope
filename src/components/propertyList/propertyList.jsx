@@ -1,29 +1,30 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react"; // Import necessary modules and hooks from React
+
+import { Link } from "react-router-dom"; // Import Components
 import Image from "react-bootstrap/Image";
 import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import DefImage from "../../assets/PropertyImages/default.jpg";
-import { FavoritesContext } from "../../context/favoritesContext";
 
-import "./propertyList.css";
+import { FavoritesContext } from "../../context/favoritesContext"; // Import FavoritesContext for managing favorite properties
+
+import "./propertyList.css"; // Import CSS for styling
 
 function PropertyList({ properties, onDragStart }) {
-  const { addFavorite } = useContext(FavoritesContext);
+  const { addFavorite } = useContext(FavoritesContext); // Use FavoritesContext to get addFavorite function
 
   if (properties.length === 0) {
-    return <p>No properties match your search criteria.</p>;
+    return <p>No properties match your search criteria.</p>; // Display message if no properties are available
   }
 
   return (
-    <Row className="property-list g-3">
+    <Row className="property-list">
       {properties.map((property) => {
         let imagePath;
         try {
-          imagePath = require(`../../assets/PropertyImages/${property.id}/${property.picture}`);
-          console.log(imagePath);
+          imagePath = require(`../../assets/PropertyImages/${property.id}/${property.picture}`); // Try to load property image
         } catch (error) {
           console.error(
             `Image not found for property ${property.id}: ${property.picture}`
@@ -36,7 +37,7 @@ function PropertyList({ properties, onDragStart }) {
             <Card
               className="property-card h-100 glass"
               draggable
-              onDragStart={(e) => onDragStart(e, property.id)}
+              onDragStart={(e) => onDragStart(e, property.id)} // Handle drag start event
             >
               <Link to={`/property/${property.id}`}>
                 <Image
@@ -50,7 +51,7 @@ function PropertyList({ properties, onDragStart }) {
                   <Card.Title>{property.location}</Card.Title>
                   <Card.Subtitle>{property.type}</Card.Subtitle>
                   <Card.Text>
-                    <strong>Price:</strong> ${property.price.toLocaleString()}
+                    <strong>Price:</strong> Rs.{property.price.toLocaleString()}
                   </Card.Text>
                   <Card.Text>
                     <strong>Bedrooms:</strong> {property.bedrooms}
@@ -60,10 +61,10 @@ function PropertyList({ properties, onDragStart }) {
                     size="sm"
                     onClick={(e) => {
                       e.preventDefault();
-                      addFavorite(property);
+                      addFavorite(property); // Add property to favorites
                     }}
                   >
-                    ❤️ Add to Favorites
+                    Add to Favorites
                   </Button>
                 </Card.Body>
               </Link>
@@ -75,4 +76,4 @@ function PropertyList({ properties, onDragStart }) {
   );
 }
 
-export default PropertyList;
+export default PropertyList; // Export PropertyList component

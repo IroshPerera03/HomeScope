@@ -34,7 +34,7 @@
 		},
 		{
 			"id": "prop3",
-			"type": "Apartment",
+			"type": "Flat",
 			"bedrooms": 1,
 			"price": 250000,
 			"tenure": "Leasehold",
@@ -50,7 +50,7 @@
 		},
 		{
 			"id": "prop4",
-			"type": "Detached House",
+			"type": "House",
 			"bedrooms": 4,
 			"price": 600000,
 			"tenure": "Freehold",
@@ -66,7 +66,7 @@
 		},
 		{
 			"id": "prop5",
-			"type": "Cottage",
+			"type": "House",
 			"bedrooms": 3,
 			"price": 675000,
 			"tenure": "Freehold",
@@ -82,7 +82,7 @@
 		},
 		{
 			"id": "prop6",
-			"type": "Studio",
+			"type": "Flat",
 			"bedrooms": 1,
 			"price": 180000,
 			"tenure": "Leasehold",
@@ -98,7 +98,7 @@
 		},
 		{
 			"id": "prop7",
-			"type": "Townhouse",
+			"type": "Bungalow",
 			"bedrooms": 3,
 			"price": 850000,
 			"tenure": "Freehold",
