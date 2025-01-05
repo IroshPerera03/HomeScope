@@ -157,7 +157,6 @@
   padding: 5px;
   margin: 0;
 }
-
 /* Styling for the calendar icon SVG */
 .react-date-picker__button svg {
   fill: var(--text-s-color); /* Apply text color to the icon */

@@ -81,5 +81,5 @@
 }
 
 .property-card a:hover {
-  color: var(--favorite-color-hover);
+  color: var(--primary-color);
 }
