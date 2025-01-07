@@ -14,10 +14,7 @@ function Header({ toggleTheme, isDarkMode }) {
   return (
     <header className="header">
       <div className="logo">
-        <NavLink
-          to="
-        /home"
-        >
+        <NavLink to="/home">
           <img
             className="logo-image"
             src={isDarkMode ? LogoDark : LogoLight} // Conditional rendering of logo based on theme
