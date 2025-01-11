@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/IroshPerera03/HomeScope/static/css/main.46b4cbbb.css",
-    "main.js": "/IroshPerera03/HomeScope/static/js/main.ad749e70.js",
+    "main.js": "/IroshPerera03/HomeScope/static/js/main.e121d24b.js",
     "static/media/day4.png": "/IroshPerera03/HomeScope/static/media/day4.15310cb5c691c8e9234e.png",
     "static/media/day1.png": "/IroshPerera03/HomeScope/static/media/day1.47ddc3dcb13cdd384f0a.png",
     "static/media/night4.png": "/IroshPerera03/HomeScope/static/media/night4.2e636434c251ca9f0242.png",
@@ -24,6 +24,6 @@
   },
   "entrypoints": [
     "static/css/main.46b4cbbb.css",
-    "static/js/main.ad749e70.js"
+    "static/js/main.e121d24b.js"
   ]
 }
