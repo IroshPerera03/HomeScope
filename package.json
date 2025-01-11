@@ -27,13 +27,13 @@
     "react-widgets": "^5.8.4",
     "web-vitals": "^2.1.4"
   },
-  "homepage": "https://github.com/IroshPerera03/HomeScope",
+  "homepage": "https://iroshperera03.github.io/HomeScope",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy" : "npm run build",
+    "predeploy" : "bun run build",
 "deploy" : "gh-pages -d build"
   },
   "eslintConfig": {

@@ -1,5 +1,10 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 import Hero from "./components/hero/hero";
@@ -20,12 +25,13 @@ const App = () => {
   return (
     // Provide favorites context to the app
     <FavoritesProvider>
-      <Router>
+      <Router basename="/HomeScope">
         <div className="app-container">
           <div className={isDarkMode ? "App dark-mode" : "App"}>
             {/* Header component with theme toggle */}
             <Header toggleTheme={toggleTheme} isDarkMode={isDarkMode} />
             <Routes>
+              <Route path="/" element={<Navigate to="/home" replace />} />
               {/* Route for home page */}
               <Route path="/home" element={<Hero isDarkMode={isDarkMode} />} />
               {/* Route for search page */}
