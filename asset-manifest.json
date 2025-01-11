@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/IroshPerera03/HomeScope/static/css/main.46b4cbbb.css",
+    "main.js": "/IroshPerera03/HomeScope/static/js/main.ad749e70.js",
+    "static/media/day4.png": "/IroshPerera03/HomeScope/static/media/day4.15310cb5c691c8e9234e.png",
+    "static/media/day1.png": "/IroshPerera03/HomeScope/static/media/day1.47ddc3dcb13cdd384f0a.png",
+    "static/media/night4.png": "/IroshPerera03/HomeScope/static/media/night4.2e636434c251ca9f0242.png",
+    "static/media/night1.png": "/IroshPerera03/HomeScope/static/media/night1.23690c2cbe5d8e826bc8.png",
+    "static/media/day3.png": "/IroshPerera03/HomeScope/static/media/day3.2cff24f933cefc1e9643.png",
+    "static/media/day2.png": "/IroshPerera03/HomeScope/static/media/day2.c6ba85fcf70fdfd06030.png",
+    "static/media/night3.png": "/IroshPerera03/HomeScope/static/media/night3.c2557d67b6bcd4915a15.png",
+    "static/media/night2.png": "/IroshPerera03/HomeScope/static/media/night2.e1e8551d45cc28538a16.png",
+    "static/media/light-bg.jpg": "/IroshPerera03/HomeScope/static/media/light-bg.7e03add6819456093b16.jpg",
+    "static/media/dark-bg.jpeg": "/IroshPerera03/HomeScope/static/media/dark-bg.996ccf37e61acf04ac3f.jpeg",
+    "static/media/Floor-Plan.png": "/IroshPerera03/HomeScope/static/media/Floor-Plan.3e4192da54d69d637a43.png",
+    "static/media/prop1pic1small.jpg": "/IroshPerera03/HomeScope/static/media/prop1pic1small.9e8e1913c02187551263.jpg",
+    "static/media/HomeScope Logo_Logo -Dark.png": "/IroshPerera03/HomeScope/static/media/HomeScope Logo_Logo -Dark.3d489fd13dacf4dfe953.png",
+    "static/media/HomeScope Logo_Logo - Light.png": "/IroshPerera03/HomeScope/static/media/HomeScope Logo_Logo - Light.67bce0daeb0099970177.png",
+    "static/media/prop4pic1small.jpg": "/IroshPerera03/HomeScope/static/media/prop4pic1small.2cf1b0ba923403a57538.jpg",
+    "static/media/prop5pic1small.jpg": "/IroshPerera03/HomeScope/static/media/prop5pic1small.076300d86f863a48e4df.jpg",
+    "static/media/prop6pic1small.jpg": "/IroshPerera03/HomeScope/static/media/prop6pic1small.b2333a1cad9aef8ad7c1.jpg",
+    "static/media/living-room.jpg": "/IroshPerera03/HomeScope/static/media/living-room.3311cc23d8f1767c629b.jpg",
+    "index.html": "/IroshPerera03/HomeScope/index.html"
+  },
+  "entrypoints": [
+    "static/css/main.46b4cbbb.css",
+    "static/js/main.ad749e70.js"
+  ]
+}
